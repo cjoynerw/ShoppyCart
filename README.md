@@ -15,7 +15,7 @@ As a User, I would like to plan my shopping for the week and have it organized b
   </ul><br>
   
 <h2>ERD</h2>
-
+<img width="1025" alt="4" src="https://user-images.githubusercontent.com/66435399/89079975-48782f80-d34d-11ea-86f5-bdac543e0e6b.png">
 
 
 <h2>Wireframe</h2>
