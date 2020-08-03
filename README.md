@@ -13,7 +13,12 @@ As a User, I would like to plan my shopping for the week and have it organized b
     <li>List can be sent to User 2 when ready to be bought</li>
     <li>User1 can make lists from different sores</li>
   </ul><br>
+  
+<h2>ERD</h2>
+<img width="1025" alt="4" src="https://user-images.githubusercontent.com/66435399/89079975-48782f80-d34d-11ea-86f5-bdac543e0e6b.png">
 
+
+<h2>Wireframe</h2>
 <h3>Home/Login</h3>
 <img width="1025" alt="1 " src="https://user-images.githubusercontent.com/66435399/89062459-1b675500-d32c-11ea-8843-7378bf26f1d4.png">
 <h3>My Lists</h3>
