@@ -7,7 +7,7 @@ const listsController = require('../controllers/lists');
 // Lists Routes
 router.use('/lists', listsController);
 
-// Items Routes
+// // Items Routes
 router.use('/items', itemsController);
 
 // Auth Routes

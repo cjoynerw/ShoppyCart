@@ -2,13 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 // Database
-const db = require('../models/items');
+const Item = require('../models/items');
 
 
 // GET Items Index
 router.get('/', async (req, res) => {
   try {
-    const allItems = await db.items.find();
+    const allItems = await Item.find();
     res.render('items/index', {
       items: allItems,
       title: 'Your Items'
@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 // GET Items New
 router.get('/new', async (req, res) => {
   try {
-    const allLists = await db.lists.find();
+    const allLists = await List.find();
     
     res.render('items/new', {
       title: 'New Item',
@@ -38,10 +38,10 @@ router.post('/', async (req, res) => {
 
   try {
     // Create the item in the items collection
-    const newItem = await db.items.create(req.body);
+    const newItem = await Item.create(req.body);
 
     // Find item list for association
-    const foundList = await db.lists.findById(req.body.list);
+    const foundList = await List.findById(req.body.list);
 
     // Associate the List and Item
     foundList.items.push(newItem);
@@ -59,7 +59,7 @@ router.post('/', async (req, res) => {
 // GET items Show
 router.get('/:id', async (req, res) => {
   try {
-    const foundItem = await db.items.findById(req.params.id).populate('list');
+    const foundItem = await Item.findById(req.params.id).populate('list');
     res.render('items/show', {
       title: 'Item Details',
       items: foundItem,
@@ -74,10 +74,10 @@ router.get('/:id/edit', async (req, res) => {
   // WE NOW MUST SEND ALL Lists TO THE Item EDIT PAGE
   try {
     // First Find the items to be edited
-    const foundItem = await db.items.findById(req.params.id);
+    const foundItem = await Item.findById(req.params.id);
 
     // Next find all lists
-    const allLists = await db.lists.find();
+    const allLists = await List.find();
 
     // Send foundItem and allLists to template
     res.render('items/edit', {
@@ -93,11 +93,11 @@ router.get('/:id/edit', async (req, res) => {
 // PUT Items Update
 router.put('/:id/', async (req, res) => {
   try {
-    const itemsToUpdate = await db.items.findByIdAndUpdate(req.params.id, req.body, {new: false});
+    const itemsToUpdate = await Item.findByIdAndUpdate(req.params.id, req.body, {new: false});
     if (itemsToUpdate.lists.toString() === req.body.lists) {
       return res.redirect(`/items/${req.params.id}`);
     }
-    const previousLists = await db.lists.findById(itemsToUpdate.lists);
+    const previousLists = await List.findById(itemsToUpdate.lists);
 
     // Remove items from previous lists
     await previousLists.items.remove(req.params.id);
@@ -106,7 +106,7 @@ router.put('/:id/', async (req, res) => {
     await previousLists.save();
 
     // Find New Lists
-    const newLists = await db.lists.findById(req.body.lists);
+    const newLists = await List.findById(req.body.lists);
 
     // Associate New Lists
     newLists.items.push(itemsToUpdate);
@@ -125,10 +125,10 @@ router.put('/:id/', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     // Delete Items from Items 
-    const deletedItems = await db.items.findByIdAndDelete(req.params.id);
+    const deletedItems = await Item.findByIdAndDelete(req.params.id);
 
     // Find Items Lists
-    const foundLists = await db.lists.findById(deletedItems.lists);
+    const foundLists = await List.findById(deletedItems.lists);
 
     // Delete Items from Lists Items
     foundLists.items.remove(req.params.id);
