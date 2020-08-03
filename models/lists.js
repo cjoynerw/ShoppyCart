@@ -1,12 +1,12 @@
 // REQUIRES
 const mongoose = require('mongoose')
-const Item = require('./item')
+const Item = require('./items')
 
 // SCHEMA
 const listSchema = new mongoose.Schema({
     items: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'List'
+        ref: 'Item'
     }]
 })
 
