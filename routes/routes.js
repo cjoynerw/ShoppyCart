@@ -1,14 +1,14 @@
 const express = require('express')
 const router = express.Router()
-// const itemsController = require('./controllers/items');
-// const listsController = require('./controllers/lists');
+const itemsController = require('../controllers/items');
+const listsController = require('../controllers/lists');
 // const authController = require('./controllers/authController');
 
 // Lists Routes
-// app.use('/lists', listsController);
+router.use('/lists', listsController);
 
 // // Items Routes
-// app.use('/items', itemsController);
+router.use('/items', itemsController);
 
 // // Auth Routes
 

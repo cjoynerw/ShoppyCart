@@ -2,19 +2,21 @@ const express = require('express');
 const router = express.Router();
 
 // Database
-const db = require('../models');
+const List = require('../models/lists');
 
 
 // GET List Index
 router.get('/', async (req, res) => {
   // Get All Lists from DB
+  console.log("i work")
   try {
-    const allLists = await db.lists.find();
-    res.render('lists/index', {
+    const allLists = await List.find();
+    res.render('lists/index.ejs', {
       list: allLists,
       title: 'Your Lists',
     });
   } catch (err) {
+    console.log('i work too')
     res.send(err);
   }
 });

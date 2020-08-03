@@ -2,13 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 // Database
-const db = require('../models');
+const Item = require('../models/items');
 
 
 // GET Items Index
 router.get('/', async (req, res) => {
   try {
-    const allItems = await db.items.find();
+    const allItems = await Item.find();
     res.render('items/index', {
       items: allItems,
       title: 'Your Items'
