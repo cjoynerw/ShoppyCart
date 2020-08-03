@@ -12,7 +12,6 @@ app.use(express.urlencoded({ extended: false }))
 const router = require('./routes/routes.js');
 app.use('/', router)
 
-
 app.listen(3000, () => {
     console.log("I'm listening")
 })
