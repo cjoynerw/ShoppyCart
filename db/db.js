@@ -2,7 +2,7 @@
 const mongoose = require('mongoose')
 
 // Connect to MongoDB through a connection URI/URL
-const connectionString = 'mongodb://localhost/fruit'
+const connectionString = 'mongodb://localhost/shoppycart'
 mongoose.connect(connectionString, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
