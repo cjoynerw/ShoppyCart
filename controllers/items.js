@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // Database
-const db = require('../models');
+const db = require('../models/items');
 
 
 // GET Items Index
@@ -50,7 +50,7 @@ router.post('/', async (req, res) => {
     await foundList.save();
 
     // Redirect to Item show page
-    res.redirect(`/items/${newAItems._id}`);
+    res.redirect(`/items/${newItems._id}`);
   } catch (err) {
     res.send(err);
   }
@@ -95,9 +95,9 @@ router.put('/:id/', async (req, res) => {
   try {
     const itemsToUpdate = await db.items.findByIdAndUpdate(req.params.id, req.body, {new: false});
     if (itemsToUpdate.lists.toString() === req.body.lists) {
-      return res.redirect(`/articles/${req.params.id}`);
+      return res.redirect(`/items/${req.params.id}`);
     }
-    const previousLists = await db.lists.findById(itemsToUpdate.author);
+    const previousLists = await db.lists.findById(itemsToUpdate.lists);
 
     // Remove items from previous lists
     await previousLists.items.remove(req.params.id);
@@ -106,7 +106,7 @@ router.put('/:id/', async (req, res) => {
     await previousLists.save();
 
     // Find New Lists
-    const newLists = await db.Author.findById(req.body.author);
+    const newLists = await db.lists.findById(req.body.lists);
 
     // Associate New Lists
     newLists.items.push(itemsToUpdate);

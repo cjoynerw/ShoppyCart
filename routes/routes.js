@@ -1,20 +1,19 @@
 const express = require('express')
 const router = express.Router()
-// const itemsController = require('./controllers/items');
-// const listsController = require('./controllers/lists');
+const itemsController = require('../controllers/items');
+const listsController = require('../controllers/lists');
 // const authController = require('./controllers/authController');
 
 // Lists Routes
-// app.use('/lists', listsController);
+router.use('/lists', listsController);
 
-// // Items Routes
-// app.use('/items', itemsController);
+// Items Routes
+router.use('/items', itemsController);
 
-// // Auth Routes
+// Auth Routes
 
-// app.use('/auth', authController);
+// router.use('/auth', authController);
 
-// ------------------------ API ROUTES
 
 
 // Home Page Route
@@ -23,8 +22,8 @@ router.get('/', (req, res) => {
 })
 
 // Grocery Stores Route
-router.get('/', (req, res) => {
-    res.render('stores')
+router.get('/stores', (req, res) => {
+    res.render('./views/index.ejs')
 })
 
 module.exports = router
