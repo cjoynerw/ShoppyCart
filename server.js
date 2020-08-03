@@ -9,6 +9,9 @@ require('./db/db')
 app.use(express.urlencoded({ extended: false }))
 
 //ROUTES
+const router = require('./routes/routes.js');
+app.use('/', router)
+
 
 app.listen(3000, () => {
     console.log("I'm listening")
