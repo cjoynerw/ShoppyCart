@@ -9,7 +9,7 @@ const Item = require('../models/items');
 router.get('/', async (req, res) => {
   try {
     const allItems = await Item.find();
-    res.render('items/index', {
+    res.render('items/index.ejs', {
       items: allItems,
       title: 'Your Items'
     });
@@ -21,11 +21,11 @@ router.get('/', async (req, res) => {
 // GET Items New
 router.get('/new', async (req, res) => {
   try {
-    const allLists = await List.find();
+    //const allLists = await List.find();
     
-    res.render('items/new', {
+    res.render('items/new.ejs', {
       title: 'New Item',
-      list: allLists,
+     // list: allLists,
     });
   } catch (err) {
     res.send(err);
