@@ -12,10 +12,11 @@
     </nav>
     <form action="/items" method="POST">
         <!-- use form inputs to represent the properties of a fruit -->
-        Item Name: <input type="text" name="name" /><br />
-        Quantity: <input type="number" name="quanity" /><br />
+        Item Name: <input type="text" name="name"/> <br />
+        Quantity: <input type="number" name="quanity"> <br />
         Unit of Measure:
         <select name="measurement" id="unitsofmeasure">
+          <option value=""></option>
           <option value="pound">lbs</option>
           <option value="kilogram">kg</option>
           <option value="ounce">oz</option>
@@ -23,9 +24,7 @@
           <option value="gallon">gl</option>
           <option value="pint">pt</option>
         </select> <br/>
-        Notes: <textarea id="notes" rows="10" cols="20" type="text"> 
-            
-               </textarea><input type="text" name="notes" /><br />
+        Additional Info: <textarea id="notes" name= "notes" rows="5" cols="17"> </textarea> <br />
         Date Needed By: <input type="date" id="delivered" name="delivered">
         <input type="submit" value="Create Item" />
     </form>
