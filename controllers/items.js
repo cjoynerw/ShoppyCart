@@ -39,12 +39,12 @@ router.post('/', async (req, res) => {
   try {
     // Create the item in the items collection
     const newItem = await Item.create(req.body);
-
+    console.log(newItem)
     // Find item list for association
-    const foundList = await List.findById(req.body.list);
-
+    const foundList = await List.findById(req.body.lists);
+    console.log(foundList)
     // Associate the List and Item
-    foundList.items.push(newItem);
+    foundList.Item.push(newItem);
 
     // Save modified lists
     await foundList.save();
