@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Item</title>
+</head>
+<body>
+    <h1>Add a New Item</h1>
+    <nav>
+        <a href="/">Back to Home Page</a>
+    </nav>
+    <h2><%= storeID %> </h2>
+    <form action="/items" method="POST">
+        <!-- use form inputs to represent the properties of a fruit -->
+        Item Name: <input required type="text" name="name"/> <br />
+        Quantity: <input required type="number" name="quantity"> <br />
+        Unit of Measure:
+        <select name="measurement" id="unitsofmeasure">
+          <option value=""></option>
+          <option value="pound">lbs</option>
+          <option value="kilogram">kg</option>
+          <option value="ounce">oz</option>
+          <option value="quart">qt</option>
+          <option value="gallon">gl</option>
+          <option value="pint">pt</option>
+        </select> <br/>
+        Additional Info: <textarea id="notes" name= "notes" rows="5" cols="17"> </textarea> <br />
+        Date Needed By: <input type="date" id="delivered" name="delivered">
+        <a href="/lists"> <input type="submit" value="Create Item" /> </a>
+    </form>
+    
+</body>
+</html>
