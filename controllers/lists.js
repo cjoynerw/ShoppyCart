@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
   // Get All Lists from DB
   try {
     const allLists = await List.find();
-    res.render('lists/index.ejs', {
+    res.render('lists/index', {
       list: allLists,
       title: 'Your Lists',
     });
