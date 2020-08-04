@@ -20,6 +20,14 @@ $primaryFont: "Helvetica Neue";
 }
 
 // Classes
+.listall {
+    h1 {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;    
+    }
+}
+
 .navbar {
     background-color: $primaryColor;
     display: flex;
@@ -59,3 +67,4 @@ header {
     position: relative;
     top: 100px;
 }
+

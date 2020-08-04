@@ -5,6 +5,11 @@
   font-size: 16px;
   font-family: "Helvetica Neue"; }
 
+.listall h1 {
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; }
+
 .navbar {
   background-color: #009900;
   display: flex;
