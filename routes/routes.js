@@ -19,7 +19,7 @@ router.use('/items', itemsController);
 
 // Home Page Route
 router.get('/', (req, res) => {
-    res.render('home.ejs')
+    res.render('home')
 })
 
 // Grocery Stores Route

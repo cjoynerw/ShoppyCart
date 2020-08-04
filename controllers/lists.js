@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
   console.log("i work")
   try {
     const allLists = await List.find();
-    res.render('lists/index.ejs', {
+    res.render('lists/index', {
       list: allLists,
       title: 'Your Lists',
     });
