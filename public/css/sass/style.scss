@@ -1,0 +1,62 @@
+// SCSS Variables
+$primaryColor: rgb(0, 191, 0);
+$secondaryColor: #000000;
+$textOnPrimary: #ffffff;
+
+$base-font: 16px;
+$primaryFont: "Helvetica Neue";
+
+// Mixins - rules that are usable anywhere in our code
+@mixin transition-ease { 
+    transition: all 0.5s ease-in-out;
+}
+
+// CSS Reset
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: $base-font;
+    font-family: $primaryFont;
+}
+
+// Classes
+.navbar {
+    background-color: $primaryColor;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.25));
+
+    a {
+        color: $textOnPrimary;
+        text-decoration: none;
+        font-size: 1.5rem;
+        padding: 1.5rem;
+    }
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+// Default Selectors
+
+a {
+    &:hover {
+        color: $secondaryColor;
+        @include transition-ease;
+    }
+}
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: 100px;
+}
