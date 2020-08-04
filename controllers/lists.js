@@ -19,12 +19,12 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET Lists New
-router.get('/new', (req, res) => {
-  res.render('lists/new.ejs', {
-    title: 'Add New List',
-  });
-});
+// // GET Lists New
+// router.get('/new', (req, res) => {
+//   res.render('lists/new.ejs', {
+//     title: 'Add New List',
+//   });
+// });
 
 // POST Lists Create
 router.post('/', async (req, res) => {

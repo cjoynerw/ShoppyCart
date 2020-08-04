@@ -8,6 +8,7 @@ const itemSchema = new mongoose.Schema({
     unit: String,
     notes: String,
     date: String,
+    store: String,
 })
 
 // CREATE MODEL
