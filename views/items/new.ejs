@@ -10,10 +10,11 @@
     <nav>
         <a href="/">Back to Home Page</a>
     </nav>
+    <h2><%= storeID %> </h2>
     <form action="/items" method="POST">
         <!-- use form inputs to represent the properties of a fruit -->
-        Item Name: <input type="text" name="name"/> <br />
-        Quantity: <input type="number" name="quanity"> <br />
+        Item Name: <input required type="text" name="name"/> <br />
+        Quantity: <input required type="number" name="quantity"> <br />
         Unit of Measure:
         <select name="measurement" id="unitsofmeasure">
           <option value=""></option>

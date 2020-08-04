@@ -25,5 +25,9 @@ router.get('/', (req, res) => {
 router.get('/stores', (req, res) => {
     res.render('stores/show.ejs')
 })
+//
+router.get("/stores/:id", (req, res) => {
+    res.render("items/new.ejs", {storeID: req.params.id})
+})
 
 module.exports = router
