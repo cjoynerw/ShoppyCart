@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 
 // Grocery Stores Route
 router.get('/stores', (req, res) => {
-    res.render('./views/index.ejs')
+    res.render('stores/show.ejs')
 })
 
 module.exports = router
