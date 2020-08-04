@@ -16,16 +16,17 @@
         Quantity: <input type="number" name="quanity" /><br />
         Unit of Measure:
         <select name="measurement" id="unitsofmeasure">
+          <option value=""></option>
           <option value="pound">lbs</option>
           <option value="kilogram">kg</option>
           <option value="ounce">oz</option>
           <option value="quart">qt</option>
           <option value="gallon">gl</option>
           <option value="pint">pt</option>
-        </select>
-        Notes: <textarea id="notes" rows="44" cols="50">
+        </select> /><br />
+        Additional Info: <textarea id="notes" rows="44" cols="50">
             
-               </textarea><input type="text" name="notes" /><br />
+            </textarea><input type="text" name="notes" /><br />
         Date Needed By: <input type="date" id="delivered" name="delivered">
         <input type="submit" value="Create Item" />
     </form>
