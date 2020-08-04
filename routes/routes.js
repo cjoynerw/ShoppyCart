@@ -10,11 +10,10 @@ router.use('/lists', listsController);
 // // Items Routes
 router.use('/items', itemsController);
 
-// // Auth Routes
+// Auth Routes
 
-// app.use('/auth', authController);
+// router.use('/auth', authController);
 
-// ------------------------ API ROUTES
 
 
 // Home Page Route
@@ -23,8 +22,8 @@ router.get('/', (req, res) => {
 })
 
 // Grocery Stores Route
-router.get('/', (req, res) => {
-    res.render('stores')
+router.get('/stores', (req, res) => {
+    res.render('./views/index.ejs')
 })
 
 module.exports = router
