@@ -1,5 +1,5 @@
 // SCSS Variables
-$primaryColor: rgb(0, 191, 0);
+$primaryColor: rgb(0, 153, 0);
 $secondaryColor: #000000;
 $textOnPrimary: #ffffff;
 
@@ -10,7 +10,6 @@ $primaryFont: "Helvetica Neue";
 @mixin transition-ease { 
     transition: all 0.5s ease-in-out;
 }
-
 // CSS Reset
 * {
     margin: 0;
