@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 
 // GET Lists New
 router.get('/new', (req, res) => {
-  res.render('lists/new', {
+  res.render('lists/new.ejs', {
     title: 'Add New List',
   });
 });
@@ -42,7 +42,7 @@ router.get('/:id', async (req, res) => {
   // Find List By ID
   try {
     const foundList = await List.findById(req.params.id).populate('items');
-    res.render('lists/show', {
+    res.render('lists/show.ejs', {
       title: 'Lists Details',
       list: foundList,
     });
@@ -75,19 +75,19 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// DELETE Lists Destroy
-router.delete('/:id/', async (req, res) => {
-  // Find the List By ID and Remove
-  try {
-    // Delete the list
-    const deletedList = await List.findByIdAndDelete(req.params.id);
-    // Delete all items with associated with the lists
-    const deletedItemResult = await List.deleteMany({list: req.params.id});
-    res.redirect('/lists');
-  } catch (err) {
-    res.send(err);
-  }
-});
+// // DELETE Lists Destroy
+// router.delete('/:id/', async (req, res) => {
+//   // Find the List By ID and Remove
+//   try {
+//     // Delete the list
+//     const deletedList = await List.findByIdAndDelete(req.params.id);
+//     // Delete all items with associated with the lists
+//     const deletedItemResult = await List.deleteMany({list: req.params.id});
+//     res.redirect('/lists');
+//   } catch (err) {
+//     res.send(err);
+//   }
+// });
 
 
 module.exports = router;

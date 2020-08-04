@@ -50,7 +50,7 @@ router.post('/', async (req, res) => {
     await foundList.save();
 
     // Redirect to Item show page
-    res.redirect(`/items/${newItems._id}`);
+    res.redirect(`/lists/${newItems._id}`);
   } catch (err) {
     res.send(err);
   }
@@ -60,7 +60,7 @@ router.post('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const foundItem = await Item.findById(req.params.id).populate('list');
-    res.render('items/show', {
+    res.render('items/show.ejs', {
       title: 'Item Details',
       items: foundItem,
     });
