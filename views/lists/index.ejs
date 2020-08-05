@@ -4,9 +4,9 @@
     <p> Your current list is empty, please add items:</p>
 
     <ul type="circle">
-        <li></li>
-        <li></li>
-        <li></li>
+        <% list.forEach(listsItem => { %>
+           <li> <%= listsItem.name %> </li> 
+        <% }); %>      
     </ul>
     
 </body>
