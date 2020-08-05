@@ -17,7 +17,7 @@
         <p>Item Name:</p> <input required type="text" name="name"/> <br />
         <p>Quantity:</p> <input required type="number" name="quantity"> <br />
          <p>Unit of Measure:
-        <select name="measurement" id="unitsofmeasure">
+        <select name="unit" id="unitsofmeasure">
           <option value=""></option>
           <option value="pound">lbs</option>
           <option value="kilogram">kg</option>
@@ -27,8 +27,8 @@
           <option value="pint">pt</option>
         </select> <br/>
         <p>Additional Info:</p> <textarea id="notes" name= "notes" rows="5" cols="17"> </textarea> <br />
-        Date Needed By: <input type="date" id="delivered" name="delivered">
-        <a href="/lists"> <input type="submit" value="Create Item" /> </a>
+        Date Needed By: <input type="date" id="delivered" name="date">
+        <input type="submit" value="Create Item" /> 
     </form>
     
 </body>

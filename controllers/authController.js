@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const router = express.Router();
 
 // Database
-const db = require('../models');
+const Auth = require('../models/auth');
 
 // GET Register New
 router.get('/register', (req, res) => {
@@ -19,7 +19,7 @@ router.post('/register', async (req, res) => {
   try {
     // Create A New User
     // Redirect To The Login page
-    const user = await db.User.findOne({username: req.body.username});
+    const user = await Auth.User.findOne({username: req.body.username});
 
     // Check If We Got A User Object Back From The Database
     if (user) {
@@ -30,16 +30,17 @@ router.post('/register', async (req, res) => {
     // Generate salt (adds complication to our password hash)
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt);
-
+    const newList = await Auth.Lists.create()
     const userData = {
+      userlist: newList,
       username: req.body.username,
       email: req.body.email,
       password: hash,
     }
 
     // Creating the new user
-    await db.User.create(userData);
-
+    let User = await Auth.User.create(userData);
+    console.log(User)
     // Redirect to the login page
     res.redirect('/auth/login');
   } catch (err) {
@@ -57,7 +58,7 @@ router.get('/login', (req, res) => {
 // POST Login Create (Session)
 router.post('/login', async (req, res) => {
   try {
-    const user = await db.User.findOne({username: req.body.username});
+    const user = await Auth.User.findOne({username: req.body.username});
     if (!user) {
       return res.render('auth/login', {
         title: 'Login',

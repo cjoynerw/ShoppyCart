@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const itemsController = require('../controllers/items');
 const listsController = require('../controllers/lists');
-// const authController = require('./controllers/authController');
+const authController = require('../controllers/authController');
 
 // Lists Routes
 router.use('/lists', listsController);
@@ -12,7 +12,7 @@ router.use('/items', itemsController);
 
 // Auth Routes
 
-// router.use('/auth', authController);
+router.use('/auth', authController);
 
 
 

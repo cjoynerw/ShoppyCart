@@ -1,24 +1,27 @@
-<div class="listall">
+<div class="one">
 
-<!-- <nav class="navbar">
-    <a href="/lists">Home</a>
-    <ul>
-        <li>
-            <a href="/lists">Create New Item</a>
-        </li>
-        <li>
-            <a href="/">Logout</a>
-        </li>
-    </ul>
-</nav> -->
-    <h1> Shoppy Cart</h1>
-    <h1> <a href="/stores">Create New Item</a></h1>
-    <p> Your current list is empty, please add items:</p>
+    <body>
+        <nav class="navbar">
+            <a href="/lists">Home</a>
+            <ul>
+                <li>
+                    <a href="/stores">Create New Item</a>
+                </li>
+                <li>
+                    <a href="/">Logout</a>
+                </li>
+            </ul>
+        </nav>
 
-    <ul type="circle">
-        <li></li>
-        <li></li>
-        <li></li>
+        <h1> Shoppy Cart</h1>
+        <h1> <a href="/stores">Create New Item</a></h1>
+        <p> Your current list is empty, please add items:</p>
+
+        <ul type="circle">
+         <% list.forEach(listsItem => { %>
+            <li> <%= listsItem.name %> </li> 
+            <% }); %>      
     </ul>
-    <%- body %>
+</body>
+
 </div>
