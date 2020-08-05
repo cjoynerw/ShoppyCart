@@ -7,9 +7,7 @@
 @mixin transition-ease { 
     transition: all 0.5s ease-in-out;
 }
-@mixin navbar {
-    
-}
+
 // CSS Reset
 * {
     margin: 0;
@@ -35,37 +33,36 @@
         top: 0;
         width: 100vw;
         filter: drop-shadow(0 4px 4px rgba(0,0,0,0.25));
-    
-        a {
-            color: $textOnPrimary;
-            text-decoration: none;
-            font-size: 1.5rem;
-            padding: 1.5rem;
-        }
-        ul {
-            list-style: none;
-            display: flex;
-            flex-direction: row;
+            a {
+                color: $textOnPrimary;
+                text-decoration: none;
+                font-size: 1.5rem;
+                padding: 1.5rem;
+                }
+            ul {
+                list-style: none;
+                display: flex;
+                flex-direction: row;
+            }
         }
     }
-}
 
 
 
 // Default Selectors
 
-a {
-    &:hover {
-        color: $secondaryColor;
-        @include transition-ease;
-    }
-}
-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
-    top: 100px;
-}
+// a {
+//     &:hover {
+//         color: $secondaryColor;
+//         @include transition-ease;
+//     }
+// }
+// header {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-around;
+//     align-items: center;
+//     position: relative;
+//     top: 100px;
+// }
 
