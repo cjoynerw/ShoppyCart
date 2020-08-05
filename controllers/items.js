@@ -3,6 +3,7 @@ const router = express.Router();
 
 // Database
 const Item = require('../models/items');
+const List = require('../models/lists');
 
 
 // GET Items Index
@@ -19,13 +20,13 @@ router.get('/', async (req, res) => {
 });
 
 // GET Items New
-router.get('/new', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    //const allLists = await List.find();
+    //const myList = await List.find();
     
     res.render('items/new.ejs', {
       title: 'New Item',
-     // list: allLists,
+    // list: myList,
     });
   } catch (err) {
     res.send(err);
@@ -35,22 +36,17 @@ router.get('/new', async (req, res) => {
 // POST Items Create
 router.post('/', async (req, res) => {
   console.log(req.body);
-
   try {
     // Create the item in the items collection
     const newItem = await Item.create(req.body);
-    console.log(newItem)
     // Find item list for association
-    const foundList = await List.findById(req.body.lists);
-    console.log(foundList)
+    const foundList = await List.find();
     // Associate the List and Item
-    foundList.Item.push(newItem);
-
+    foundList.items.push(newItem);
     // Save modified lists
     await foundList.save();
-
     // Redirect to Item show page
-    res.redirect(`/lists/${newItems._id}`);
+    res.redirect(`/items/${newItems._id}`);
   } catch (err) {
     res.send(err);
   }
@@ -59,7 +55,7 @@ router.post('/', async (req, res) => {
 // GET items Show
 router.get('/:id', async (req, res) => {
   try {
-    const foundItem = await Item.findById(req.params.id).populate('list');
+    const foundItem = await Item.findById(req.params.id);
     res.render('items/show.ejs', {
       title: 'Item Details',
       items: foundItem,
@@ -98,16 +94,12 @@ router.put('/:id/', async (req, res) => {
       return res.redirect(`/items/${req.params.id}`);
     }
     const previousLists = await List.findById(itemsToUpdate.lists);
-
     // Remove items from previous lists
     await previousLists.items.remove(req.params.id);
-
     // Save modified previous lists
     await previousLists.save();
-
     // Find New Lists
     const newLists = await List.findById(req.body.lists);
-
     // Associate New Lists
     newLists.items.push(itemsToUpdate);
 
@@ -126,16 +118,12 @@ router.delete('/:id', async (req, res) => {
   try {
     // Delete Items from Items 
     const deletedItems = await Item.findByIdAndDelete(req.params.id);
-
     // Find Items Lists
     const foundLists = await List.findById(deletedItems.lists);
-
     // Delete Items from Lists Items
     foundLists.items.remove(req.params.id);
-
     // Save Modified Lists
     await foundLists.save();
-
     // Redirect to Items Index
     res.redirect('/items');
   } catch (err) {
