@@ -3,10 +3,11 @@ const bcrypt = require('bcryptjs');
 const router = express.Router();
 
 // Database
-const Auth = require('../models/auth');
+const User = require('../models/auth')
+const List = require("../models/lists")
 
 // GET Register New
-router.get('/register', (req, res) => {
+router.get('/', (req, res) => {
   res.render('auth/register', {
     title: 'Register',
   });
@@ -19,7 +20,7 @@ router.post('/register', async (req, res) => {
   try {
     // Create A New User
     // Redirect To The Login page
-    const user = await Auth.User.findOne({username: req.body.username});
+    const user = await User.findOne({email: req.body.email});
 
     // Check If We Got A User Object Back From The Database
     if (user) {
@@ -29,8 +30,8 @@ router.post('/register', async (req, res) => {
     // Hash Password
     // Generate salt (adds complication to our password hash)
     const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(req.body.password, salt);
-    const newList = await Auth.Lists.create()
+    const hash = bcrypt.hashSync(req.body.pwd, salt);
+    const newList = await List.create()
     const userData = {
       userlist: newList,
       username: req.body.username,
@@ -39,18 +40,19 @@ router.post('/register', async (req, res) => {
     }
 
     // Creating the new user
-    let User = await Auth.User.create(userData);
-    console.log(User)
+    let newUser = await User.create(userData);
+    console.log(newUser)
     // Redirect to the login page
-    res.redirect('/auth/login');
+    res.redirect('/lists');
   } catch (err) {
+    console.log(err)
     res.send(err);
   }
 });
 
 // GET Login New
 router.get('/login', (req, res) => {
-  res.render('auth/login', {
+  res.render('views/login', {
     title: 'Login',
   });
 });
@@ -60,7 +62,7 @@ router.post('/login', async (req, res) => {
   try {
     const user = await Auth.User.findOne({username: req.body.username});
     if (!user) {
-      return res.render('auth/login', {
+      return res.render('views/login', {
         title: 'Login',
         error: 'Invalid Credentials',
       });
@@ -89,7 +91,7 @@ req.session.currentUser = user._id;
 router.get('/logout', async (req, res) => {
   try {
     await req.session.destroy();
-    res.redirect('/auth/login');
+    res.redirect('/views/login');
   } catch (err) {
     res.send(err);
   }

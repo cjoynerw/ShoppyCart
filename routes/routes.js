@@ -11,9 +11,7 @@ router.use('/lists', listsController);
 router.use('/items', itemsController);
 
 // Auth Routes
-
 router.use('/auth', authController);
-
 
 
 // Home Page Route
