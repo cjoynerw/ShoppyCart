@@ -1,8 +1,8 @@
 <div class="homepage">
     
     <header>
-        <h1> Welcome to Shoppy Cart</h1>
-    </header>
+        <h1> Welcome to Shoppy Cart</h1> 
+    </header> <br />
     <main>
         <div class="username">
             <label for="username">Username:</label> <br />
@@ -18,15 +18,30 @@
         </div> <br />
 
         
-       <a href="/lists"> <input type="submit" value="Start Shopping"> </a>
+       <a href="/lists"> <input type="submit" value="Start Shopping"> </a> 
     </main>
 
-</div>
+</div> <br /> <hr>
 
-        <a href="/lists"> <input type="submit" value="Start Shopping"> </a>
+       
 
         <form action="/auth/register" method="POST">
             <div class="container">
+
+            <h1>Register Here:</h1> <br />
+            <p>Please fill in the details to start making your shopping list.</p> <br />
+            <label for="email"><b>Enter Email:</b></label>
+            <input type="text" placeholder="Enter Email" name="email"> <br />
+            <label for="pwd"><b>Password:</b></label>
+            <input type="password" placeholder="Enter Password" name="pwd"> <br />
+            <label for="confirm"><b>Confirm Password:</b></label>
+            <input type="password" placeholder="Confirm Password" name="confirm"> <br />
+            <a href="/lists"> <button type="submit" class="registerbtn"><strong>Register</strong></button>
+            </div> <br />
+            <div class="container signin">
+            <p>Already have an account? <a href="#">Sign in</a>.</p> 
+            </div> 
+
             <h1>Register Here</h1>
             <p>Please fill in the details to start making your shopping list.</p>
             <hr>
@@ -42,6 +57,7 @@
             <div class="container signin">
             <p>Already have an account? <a href="/lists">Sign in</a>.</p>
             </div>
+
         </form>
     </main>
 
