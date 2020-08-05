@@ -5,8 +5,13 @@
   font-size: 16px;
   font-family: "Helvetica Neue"; }
 
-.navbar {
-  background-color: #00bf00;
+.one h1 {
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; }
+
+.one .navbar {
+  background-color: #009900;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,24 +19,12 @@
   top: 0;
   width: 100vw;
   filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25)); }
-  .navbar a {
+  .one .navbar a {
     color: #ffffff;
     text-decoration: none;
     font-size: 1.5rem;
     padding: 1.5rem; }
-  .navbar ul {
+  .one .navbar ul {
     list-style: none;
     display: flex;
     flex-direction: row; }
-
-a:hover {
-  color: #000000;
-  transition: all 0.5s ease-in-out; }
-
-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  position: relative;
-  top: 100px; }

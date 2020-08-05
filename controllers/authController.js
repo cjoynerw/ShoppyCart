@@ -3,7 +3,8 @@ const bcrypt = require('bcryptjs');
 const router = express.Router();
 
 // Database
-const Auth = require('../models/auth');
+const User = require('../models/auth')
+const List = require("../models/lists")
 
 // GET Register New
 router.get('/', (req, res) => {
@@ -13,13 +14,13 @@ router.get('/', (req, res) => {
 });
 
 // POST Register Create (User)
-router.post('/', async (req, res) => {
+router.post('/register', async (req, res) => {
   // Validating
   console.log('New User Obj = ', req.body);
   try {
     // Create A New User
     // Redirect To The Login page
-    const user = await Auth.User.findOne({username: req.body.username});
+    const user = await User.findOne({email: req.body.email});
 
     // Check If We Got A User Object Back From The Database
     if (user) {
@@ -29,8 +30,8 @@ router.post('/', async (req, res) => {
     // Hash Password
     // Generate salt (adds complication to our password hash)
     const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(req.body.password, salt);
-    const newList = await Auth.Lists.create()
+    const hash = bcrypt.hashSync(req.body.pwd, salt);
+    const newList = await List.create()
     const userData = {
       userlist: newList,
       username: req.body.username,
@@ -39,11 +40,12 @@ router.post('/', async (req, res) => {
     }
 
     // Creating the new user
-    let User = await Auth.User.create(userData);
-    console.log(User)
+    let newUser = await User.create(userData);
+    console.log(newUser)
     // Redirect to the login page
-    res.redirect('/views/login');
+    res.redirect('/lists');
   } catch (err) {
+    console.log(err)
     res.send(err);
   }
 });
