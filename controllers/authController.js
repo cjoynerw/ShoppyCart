@@ -6,14 +6,14 @@ const router = express.Router();
 const Auth = require('../models/auth');
 
 // GET Register New
-router.get('/register', (req, res) => {
+router.get('/', (req, res) => {
   res.render('auth/register', {
     title: 'Register',
   });
 });
 
 // POST Register Create (User)
-router.post('/register', async (req, res) => {
+router.post('/', async (req, res) => {
   // Validating
   console.log('New User Obj = ', req.body);
   try {
@@ -42,7 +42,7 @@ router.post('/register', async (req, res) => {
     let User = await Auth.User.create(userData);
     console.log(User)
     // Redirect to the login page
-    res.redirect('/auth/login');
+    res.redirect('/views/login');
   } catch (err) {
     res.send(err);
   }
@@ -50,7 +50,7 @@ router.post('/register', async (req, res) => {
 
 // GET Login New
 router.get('/login', (req, res) => {
-  res.render('auth/login', {
+  res.render('views/login', {
     title: 'Login',
   });
 });
@@ -60,7 +60,7 @@ router.post('/login', async (req, res) => {
   try {
     const user = await Auth.User.findOne({username: req.body.username});
     if (!user) {
-      return res.render('auth/login', {
+      return res.render('views/login', {
         title: 'Login',
         error: 'Invalid Credentials',
       });
@@ -89,7 +89,7 @@ req.session.currentUser = user._id;
 router.get('/logout', async (req, res) => {
   try {
     await req.session.destroy();
-    res.redirect('/auth/login');
+    res.redirect('/views/login');
   } catch (err) {
     res.send(err);
   }
