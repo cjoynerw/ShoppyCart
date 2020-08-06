@@ -12,14 +12,16 @@ router.get('/', async (req, res) => {
   // Get All Lists from DB
   try {
     const myList = await List.find()
-    res.render('lists/show', {
-      list: myList.name,
+    console.log(myList)
+    res.render('lists/index', {
+      list: myList,
       title: 'Your Lists'
     });
   } catch (err) {
     res.send(err);
   }
 });
+
 
 // // GET Lists New
 // router.get('/new', (req, res) => {

@@ -40,7 +40,7 @@ router.post('/register', async (req, res) => {
 
     // Creating the new user
     let newUser = await User.create(userData);
-    console.log(newUser)
+    console.log(newUser, newList)
     // Redirect to the lists
     res.redirect('/lists');
   } catch (err) {
@@ -67,11 +67,9 @@ router.post('/login', async (req, res) => {
         error: 'Invalid Credentials',
       });
     }
-
-// Check passwords
     const passwordsMatch = bcrypt.compareSync(req.body.password, user.password);
     if (passwordsMatch === false) {
-      return res.render('auth/login', {
+      return res.render('home', {
         title: 'Login',
         error: 'Invalid Credentials',
       });

@@ -3,6 +3,11 @@
     <header>
         <h1> Welcome to Shoppy Cart</h1> 
     </header> <br />
+    
+    <% if (typeof error !== 'undefined') { %>
+        <span style="color: red; font-weight: bold;"><%= error %></span> 
+      <% } %>
+
     <main>
         <form action="/auth/login" method="POST">
 

@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const { create } = require("../models/items")
+
 
 // Database
 const Item = require('../models/items');
@@ -7,33 +9,50 @@ const List = require('../models/lists');
 
 
 // GET Items Index
-router.get('/', async (req, res) => {
-  try {
-    const allItems = await Item.find();
-    res.render('items/index.ejs', {
-      items: allItems,
-      title: 'Your Items'
-    });
-  } catch (err) {
-    res.send(err);
-  }
-});
+// router.get('/', async (req, res) => {
+//   try {
+//     const allItems = await Item.find();
+//     res.render('items/index', {
+//       items: allItems,
+//       title: 'Your Items'
+//     });
+//   } catch (err) {
+//     res.send(err);
+//   }
+// });
+
+router.get('/', (req, res) => {
+  Item.find({}, (err, foundItem) => {
+      res.render('items/index.ejs', {
+          items: foundItem
+      })
+  })
+})
 
 // GET Items New
-router.get('/', async (req, res) => {
-  try {
-    //const myList = await List.find();
-    
-    res.render('items/new.ejs', {
-      title: 'New Item',
-    // list: myList,
-    });
-  } catch (err) {
-    res.send(err);
-  }
-});
+// router.get('/new', async (req, res) => {
+//   try {
+//     const myList = await List.find();
+//     res.render('items/new', {
+//       title: 'New Item',
+//       list: myList,
+//     });
+//   } catch (err) {
+//     res.send(err);
+//   }
+// });
 
-//POST Items Create
+router.get('/new', (req, res) => {
+  // find all authors
+  List.find({}, (err, foundList) => {
+      // provide the foundAuthors to the view
+      res.render('items/new.ejs', {
+          lists: foundList
+      })
+  })
+})
+
+// POST Items Create
 router.post('/', async (req, res) => {
   console.log(req.body);
   try {
@@ -46,7 +65,7 @@ router.post('/', async (req, res) => {
     // Save modified lists
     await foundList.save();
     // Redirect to Item show page
-    res.redirect("lists");
+    res.redirect("/lists");
   } catch (err) {
     res.send(err);
   }
