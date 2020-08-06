@@ -6,11 +6,17 @@ const session = require('express-session');
 
 require('./db/db')
 
+// Require and configure dotenv
+require("dotenv").config()
+
 
 app.use(methodOverride('_method'))
 
 // MIDDLEWARE
-app.use(session({secret: "Hello James", resave: false, saveUninitialized: false}))
+app.use(session({
+    secret: process.env.SESSION_SECRET, 
+    resave: false, 
+    saveUninitialized: false}))
 app.set('view engine', 'ejs')
 app.use(ejsLayouts);
 app.use(express.static(__dirname + '/public/'))
@@ -20,6 +26,6 @@ app.use(express.urlencoded({ extended: false }))
 const router = require('./routes/routes.js');
 app.use('/', router)
 
-app.listen(3000, () => {
-    console.log("I'm listening")
+app.listen(process.env.PORT, () => {
+    console.log('listening on port: ' + process.env.PORT)
 })
