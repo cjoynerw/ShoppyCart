@@ -1,23 +1,44 @@
 <div class="homepage">
     
     <header>
-        <h1> Welcome to Shoppy Cart</h1>
+        <nav class="navbar">
+            <a> Welcome to Shoppy Cart</a>
+        </nav>
+        
     </header>
     <main>
-        <div class="username">
-            <label for="username">Username:</label> <br />
-            <input type="text"  name="username">
-        </div>
+        <div class="returning">
+            <h2>Returning Users</h2>
+                <div class="username">
+                    <label for="username">Username:</label> <br />
+                     <input type="text"  name="username">
+                 </div>
         
-        <div class="password">
+                 <div class="password">
 
             <label for="pass">Password:</label> <br />
 
             <input type="password" name="password"
                    minlength="8" required>
         </div> <br />
-        
-       <a href="/lists"> <input type="submit" value="Start Shopping"> </a>
-    </main>
+        </div>
 
+        <a href="/lists"> <input type="submit" value="Start Shopping"> </a>
+
+        <form action="/lists" method="POST">
+            <div class="container">
+            <h2>New here? Start by registering below!</h2>
+            <p>Please fill in the details to start making your shopping list.</p>
+            <hr>
+            <label for="email"><b>Enter Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email"><br />
+            <label for="pwd"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="pwd"><br />
+            <label for="confirm"><b>Confirm Password</b></label>
+            <input type="password" placeholder="Confirm Password" name="confirm"><br />
+            <hr>
+            <a href="/lists"> <button type="submit" class="registerbtn"><strong>Register</strong></button>
+            </div>
+        </form>
+    </main>
 </div>
