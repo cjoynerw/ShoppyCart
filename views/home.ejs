@@ -1,44 +1,51 @@
 <div class="homepage">
     
     <header>
-        <nav class="navbar">
-            <a> Welcome to Shoppy Cart</a>
-        </nav>
-        
-    </header>
+        <h1> Welcome to Shoppy Cart</h1> 
+    </header> <br />
+    
+    <% if (typeof error !== 'undefined') { %>
+        <span style="color: red; font-weight: bold;"><%= error %></span> 
+      <% } %>
+
     <main>
-        <div class="returning">
-            <h2>Returning Users</h2>
-                <div class="username">
-                    <label for="username">Username:</label> <br />
-                     <input type="text"  name="username">
-                 </div>
+        <form action="/auth/login" method="POST">
+
+        <div class="email">
+            <label for="em">Username:</label> <br />
+            <input type="email"  name="email">
+        </div>
         
                  <div class="password">
 
             <label for="pass">Password:</label> <br />
 
             <input type="password" name="password"
-                   minlength="8" required>
+                   minlength="4" required>
         </div> <br />
-        </div>
+        <input type="submit" value="Start Shopping"> 
+    </form>
+    </main>
 
-        <a href="/lists"> <input type="submit" value="Start Shopping"> </a>
+</div> <br /> <hr>
 
-        <form action="/lists" method="POST">
+       
+
+        <form action="/auth/register" method="POST">
             <div class="container">
-            <h2>New here? Start by registering below!</h2>
-            <p>Please fill in the details to start making your shopping list.</p>
-            <hr>
-            <label for="email"><b>Enter Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email"><br />
-            <label for="pwd"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="pwd"><br />
-            <label for="confirm"><b>Confirm Password</b></label>
-            <input type="password" placeholder="Confirm Password" name="confirm"><br />
-            <hr>
+
+            <h1>Register Here:</h1> <br />
+            <p>Please fill in the details to start making your shopping list.</p> <br />
+            <label for="email"><b>Enter Email:</b></label>
+            <input type="text" placeholder="Enter Email" name="email"> <br />
+            <label for="pwd"><b>Password:</b></label>
+            <input type="password" placeholder="Enter Password" name="pwd"> <br />
+            <label for="confirm"><b>Confirm Password:</b></label>
+            <input type="password" placeholder="Confirm Password" name="confirm"> <br />
             <a href="/lists"> <button type="submit" class="registerbtn"><strong>Register</strong></button>
-            </div>
+            </div> <br />
+            <div class="container signin">
+            </div> 
         </form>
     </main>
-</div>
+
