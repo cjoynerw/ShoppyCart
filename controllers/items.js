@@ -33,7 +33,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// POST Items Create
+//POST Items Create
 router.post('/', async (req, res) => {
   console.log(req.body);
   try {
@@ -46,7 +46,7 @@ router.post('/', async (req, res) => {
     // Save modified lists
     await foundList.save();
     // Redirect to Item show page
-    res.redirect(`/items/${newItems._id}`);
+    res.redirect("lists");
   } catch (err) {
     res.send(err);
   }

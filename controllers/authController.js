@@ -21,7 +21,7 @@ router.post('/register', async (req, res) => {
     // Create A New User
     // Redirect To The Login page
     const user = await User.findOne({email: req.body.email});
-
+    console.log("line 24", user)
     // Check If We Got A User Object Back From The Database
     if (user) {
       return res.send('<h1>Account already exists, please login</h1>');
@@ -34,7 +34,6 @@ router.post('/register', async (req, res) => {
     const newList = await List.create()
     const userData = {
       userlist: newList,
-      username: req.body.username,
       email: req.body.email,
       password: hash,
     }
@@ -42,7 +41,7 @@ router.post('/register', async (req, res) => {
     // Creating the new user
     let newUser = await User.create(userData);
     console.log(newUser)
-    // Redirect to the login page
+    // Redirect to the lists
     res.redirect('/lists');
   } catch (err) {
     console.log(err)
@@ -52,7 +51,7 @@ router.post('/register', async (req, res) => {
 
 // GET Login New
 router.get('/login', (req, res) => {
-  res.render('views/login', {
+  res.render('auth/login', {
     title: 'Login',
   });
 });
@@ -60,16 +59,17 @@ router.get('/login', (req, res) => {
 // POST Login Create (Session)
 router.post('/login', async (req, res) => {
   try {
-    const user = await Auth.User.findOne({username: req.body.username});
+    const user = await User.findOne({email: req.body.email});
+    console.log("line 63", user)
     if (!user) {
-      return res.render('views/login', {
+      return res.render('home', {
         title: 'Login',
         error: 'Invalid Credentials',
       });
     }
 
 // Check passwords
-const passwordsMatch = bcrypt.compareSync(req.body.password, user.password);
+    const passwordsMatch = bcrypt.compareSync(req.body.password, user.password);
     if (passwordsMatch === false) {
       return res.render('auth/login', {
         title: 'Login',
@@ -77,10 +77,10 @@ const passwordsMatch = bcrypt.compareSync(req.body.password, user.password);
       });
     }
 
-// Create Session
-req.session.currentUser = user._id;
-    console.log(req.session);
-    res.redirect('/');
+    
+    req.session.currentUser = user._id;
+    console.log("line 82", req.session);
+    res.redirect('/lists');
   } catch (err) {
     res.send(err);
   }
@@ -91,7 +91,7 @@ req.session.currentUser = user._id;
 router.get('/logout', async (req, res) => {
   try {
     await req.session.destroy();
-    res.redirect('/views/login');
+    res.redirect('/auth/login');
   } catch (err) {
     res.send(err);
   }
