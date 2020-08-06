@@ -9,48 +9,48 @@ const List = require('../models/lists');
 
 
 // GET Items Index
-// router.get('/', async (req, res) => {
-//   try {
-//     const allItems = await Item.find();
-//     res.render('items/index', {
-//       items: allItems,
-//       title: 'Your Items'
-//     });
-//   } catch (err) {
-//     res.send(err);
-//   }
-// });
+router.get('/', async (req, res) => {
+  try {
+    const allItems = await Item.find();
+    res.render('items/index', {
+      items: allItems,
+      title: 'Your Items'
+    });
+  } catch (err) {
+    res.send(err);
+  }
+});
 
-router.get('/', (req, res) => {
-  Item.find({}, (err, foundItem) => {
-      res.render('items/index.ejs', {
-          items: foundItem
-      })
-  })
-})
+// router.get('/', (req, res) => {
+//   Item.find({}, (err, foundItem) => {
+//       res.render('items/index.ejs', {
+//           items: foundItem
+//       })
+//   })
+// })
 
 // GET Items New
-// router.get('/new', async (req, res) => {
-//   try {
-//     const myList = await List.find();
-//     res.render('items/new', {
-//       title: 'New Item',
-//       list: myList,
-//     });
-//   } catch (err) {
-//     res.send(err);
-//   }
-// });
+router.get('/new', async (req, res) => {
+  try {
+    const myList = await List.find();
+    res.render('items/new', {
+      title: 'New Item',
+      list: myList,
+    });
+  } catch (err) {
+    res.send(err);
+  }
+});
 
-router.get('/new', (req, res) => {
-  // find all authors
-  List.find({}, (err, foundList) => {
-      // provide the foundAuthors to the view
-      res.render('items/new.ejs', {
-          lists: foundList
-      })
-  })
-})
+// router.get('/new', (req, res) => {
+//   // find all authors
+//   List.find({}, (err, foundList) => {
+//       // provide the foundAuthors to the view
+//       res.render('items/new.ejs', {
+//           lists: foundList
+//       })
+//   })
+// })
 
 // POST Items Create
 router.post('/', async (req, res) => {
@@ -71,6 +71,23 @@ router.post('/', async (req, res) => {
   }
 });
 
+// router.post('/', (req, res) => {
+//   Item.create(req.body, (err, createdItem) => {
+//       if (err) {
+//           console.log("error", err)
+//       } else {
+//           List.findById(req.body.ListId, (err, foundList) => {
+//               foundList.items.push(createdItem)
+//               foundList.save((err, savedList) => {
+//                   res.redirect('/lists')
+//               })
+//           })
+//       }
+//   })
+// })
+
+
+
 // GET items Show
 router.get('/:id', async (req, res) => {
   try {
@@ -83,6 +100,22 @@ router.get('/:id', async (req, res) => {
     res.send(err);
   }
 });
+
+// router.get('/:id', (req, res) => {
+//   List.findOne({ 'items': req.params.id })
+//       .populate({
+//           path: 'items',
+//           match: { _id: req.params.id }
+//       }).exec((err, foundList) => {
+//           if (err) console.log(err)
+//           res.render('items/show.ejs', {
+//               list: foundList,
+//               item: foundList.items[0]
+//           })
+//       })
+// })
+
+
 
 // GET items Edit
 router.get('/:id/edit', async (req, res) => {

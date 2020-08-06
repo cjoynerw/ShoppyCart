@@ -11,10 +11,10 @@ const Item = require('../models/items');
 router.get('/', async (req, res) => {
   // Get All Lists from DB
   try {
-    const myList = await List.find()
+    const myList = await List.find().populate('items')
     console.log(myList)
-    res.render('lists/index', {
-      list: myList,
+    res.render('items', {
+      list: myList.items,
       title: 'Your Lists'
     });
   } catch (err) {
@@ -31,9 +31,9 @@ router.get('/', async (req, res) => {
 // });
 
 //POST Lists Create
-// router.post('/lists', async (req, res) => {
+// router.post('/', async (req, res) => {
 //   try {
-//   // const newList = await List.create(req.body);
+//   const newList = await List.create(req.body);
 //     await List.create(req.body.id);
 //     res.redirect('/lists') ;
 //   } catch (err) {
