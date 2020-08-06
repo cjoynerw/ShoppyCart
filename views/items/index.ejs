@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <header>
+       <h1> Items </h1>
+       <nav> 
+        <ul>
+            <li>
+                <a href="/items/show">Items Page</a>
+            </li>
+            <li>
+                <a href="/items/new">Create New Item</a>
+            </li>
+        </ul>
+       </nav>
+    </header>
+    <main>
+        <h2> List of Items</h2>
+        <ul>
+            <% for(let i = 0; i < items.length; i++) { %>
+                <li>
+                    <a href="/items/<%= items[i]._id %>"><%= items[i].name%></a>
+                </li>
+            <% } %>
+        </ul>
+        <nav>
+        </nav>
+    </main>     
+</body>
+</html>

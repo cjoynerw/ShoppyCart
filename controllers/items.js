@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const { create } = require("../models/items")
+
 
 // Database
 const Item = require('../models/items');
+const List = require('../models/lists');
 
 
 // GET Items Index
@@ -10,7 +13,7 @@ router.get('/', async (req, res) => {
   try {
     const allItems = await Item.find();
     res.render('items/index.ejs', {
-      items: allItems,
+      items: allItems[0],
       title: 'Your Items'
     });
   } catch (err) {
@@ -18,39 +21,38 @@ router.get('/', async (req, res) => {
   }
 });
 
+
 // GET Items New
 router.get('/new', async (req, res) => {
   try {
-    //const allLists = await List.find();
-    
+   // const myList = await List.find();
     res.render('items/new.ejs', {
       title: 'New Item',
-     // list: allLists,
+    //  list: myList,
     });
   } catch (err) {
     res.send(err);
   }
 });
 
+
 // POST Items Create
 router.post('/', async (req, res) => {
   console.log(req.body);
-
+  console.log("Hi, Im in here")
   try {
     // Create the item in the items collection
     const newItem = await Item.create(req.body);
-    console.log(newItem)
     // Find item list for association
-    const foundList = await List.findById(req.body.lists);
-    console.log(foundList)
+    const foundList = await List.find();
     // Associate the List and Item
-    foundList.Item.push(newItem);
-
+    foundList[0].items.push(newItem);
     // Save modified lists
-    await foundList.save();
-
+    await foundList[0].save();
+    console.log("line 51")
+    console.log(foundList)
     // Redirect to Item show page
-    res.redirect(`/lists/${newItems._id}`);
+    res.redirect("/items");
   } catch (err) {
     res.send(err);
   }
@@ -59,8 +61,8 @@ router.post('/', async (req, res) => {
 // GET items Show
 router.get('/:id', async (req, res) => {
   try {
-    const foundItem = await Item.findById(req.params.id).populate('list');
-    res.render('items/show.ejs', {
+    const foundItem = await Item.findById(req.params.id).populate("lists");
+    res.render('items/show', {
       title: 'Item Details',
       items: foundItem,
     });
@@ -76,14 +78,14 @@ router.get('/:id/edit', async (req, res) => {
     // First Find the items to be edited
     const foundItem = await Item.findById(req.params.id);
 
-    // Next find all lists
-    const allLists = await List.find();
+    // Next find list
+    const myList = await List.find();
 
-    // Send foundItem and allLists to template
-    res.render('items/edit', {
+    // Send foundItem and myList to template
+    res.render('edit', {
       title: 'Edit List',
       item: foundItem,
-      list: allLists,
+      list: myList,
     });
   } catch (err) {
     res.send(err);
@@ -98,16 +100,12 @@ router.put('/:id/', async (req, res) => {
       return res.redirect(`/items/${req.params.id}`);
     }
     const previousLists = await List.findById(itemsToUpdate.lists);
-
     // Remove items from previous lists
     await previousLists.items.remove(req.params.id);
-
     // Save modified previous lists
     await previousLists.save();
-
     // Find New Lists
     const newLists = await List.findById(req.body.lists);
-
     // Associate New Lists
     newLists.items.push(itemsToUpdate);
 
@@ -126,16 +124,12 @@ router.delete('/:id', async (req, res) => {
   try {
     // Delete Items from Items 
     const deletedItems = await Item.findByIdAndDelete(req.params.id);
-
     // Find Items Lists
     const foundLists = await List.findById(deletedItems.lists);
-
     // Delete Items from Lists Items
     foundLists.items.remove(req.params.id);
-
     // Save Modified Lists
     await foundLists.save();
-
     // Redirect to Items Index
     res.redirect('/items');
   } catch (err) {

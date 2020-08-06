@@ -3,10 +3,11 @@ const bcrypt = require('bcryptjs');
 const router = express.Router();
 
 // Database
-const db = require('../models/auth');
+const User = require('../models/auth')
+const List = require("../models/lists")
 
 // GET Register New
-router.get('/register', (req, res) => {
+router.get('/', (req, res) => {
   res.render('auth/register', {
     title: 'Register',
   });
@@ -19,8 +20,8 @@ router.post('/register', async (req, res) => {
   try {
     // Create A New User
     // Redirect To The Login page
-    const user = await db.User.findOne({username: req.body.username});
-
+    const user = await User.findOne({email: req.body.email});
+    console.log("line 24", user)
     // Check If We Got A User Object Back From The Database
     if (user) {
       return res.send('<h1>Account already exists, please login</h1>');
@@ -29,20 +30,21 @@ router.post('/register', async (req, res) => {
     // Hash Password
     // Generate salt (adds complication to our password hash)
     const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(req.body.password, salt);
-
+    const hash = bcrypt.hashSync(req.body.pwd, salt);
+    const newList = await List.create()
     const userData = {
-      username: req.body.username,
+      userlist: newList,
       email: req.body.email,
       password: hash,
     }
 
     // Creating the new user
-    await db.User.create(userData);
-
-    // Redirect to the login page
-    res.redirect('/auth/login');
+    let newUser = await User.create(userData);
+    console.log(newUser, newList)
+    // Redirect to the lists
+    res.redirect('/lists');
   } catch (err) {
+    console.log(err)
     res.send(err);
   }
 });
@@ -57,27 +59,27 @@ router.get('/login', (req, res) => {
 // POST Login Create (Session)
 router.post('/login', async (req, res) => {
   try {
-    const user = await db.User.findOne({username: req.body.username});
+    const user = await User.findOne({email: req.body.email});
+    console.log("line 63", user)
     if (!user) {
-      return res.render('auth/login', {
+      return res.render('home', {
         title: 'Login',
         error: 'Invalid Credentials',
       });
     }
-
-// Check passwords
-const passwordsMatch = bcrypt.compareSync(req.body.password, user.password);
+    const passwordsMatch = bcrypt.compareSync(req.body.password, user.password);
+    console.log("line 71", passwordsMatch)
     if (passwordsMatch === false) {
-      return res.render('auth/login', {
+      return res.render('home', {
         title: 'Login',
         error: 'Invalid Credentials',
       });
     }
 
-// Create Session
-req.session.currentUser = user._id;
-    console.log(req.session);
-    res.redirect('/');
+    
+    req.session.currentUser = user._id;
+    console.log("line 82", req.session.currentUser);
+    res.redirect('/lists');
   } catch (err) {
     res.send(err);
   }

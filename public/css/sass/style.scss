@@ -1,10 +1,7 @@
-// SCSS Variables
-$primaryColor: rgb(0, 191, 0);
-$secondaryColor: #000000;
-$textOnPrimary: #ffffff;
+@import "./variables";
 
-$base-font: 16px;
-$primaryFont: "Helvetica Neue";
+// SCSS Variables
+
 
 // Mixins - rules that are usable anywhere in our code
 @mixin transition-ease { 
@@ -21,42 +18,51 @@ $primaryFont: "Helvetica Neue";
 }
 
 // Classes
-.navbar {
-    background-color: $primaryColor;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.25));
-
-    a {
-        color: $textOnPrimary;
-        text-decoration: none;
-        font-size: 1.5rem;
-        padding: 1.5rem;
+.one {
+    h1 {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;    
     }
-    ul {
-        list-style: none;
+    .navbar {
+        background-color: $primaryColor;
         display: flex;
-        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        filter: drop-shadow(0 4px 4px rgba(0,0,0,0.25));
+            a {
+                color: $textOnPrimary;
+                text-decoration: none;
+                font-size: 1.5rem;
+                padding: 1.5rem;
+                }
+            ul {
+                list-style: none;
+                display: flex;
+                flex-direction: row;
+            }
+        }
     }
-}
+
+
 
 // Default Selectors
 
-a {
-    &:hover {
-        color: $secondaryColor;
-        @include transition-ease;
-    }
-}
-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
-    top: 100px;
-}
+// a {
+//     &:hover {
+//         color: $secondaryColor;
+//         @include transition-ease;
+//     }
+// }
+// header {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-around;
+//     align-items: center;
+//     position: relative;
+//     top: 100px;
+// }
+

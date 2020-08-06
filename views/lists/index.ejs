@@ -1,12 +1,26 @@
-<body>
-    <h1> Shoppy Cart</h1>
-    <h1> <a href="/stores">Create New Item</a></h1>
-    <p> Your current list is empty, please add items:</p>
+<div class="one">
 
-    <ul type="circle">
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
+    <body>
+        <nav class="navbar">
+            <a href="/lists">Home</a>
+            <ul>
+                <li>
+                    <a href="/stores">Create New Item</a>
+                </li>
+                <li>
+                    <a href="/">Logout</a>
+                </li>
+            </ul>
+        </nav>
+
+        <p> Your current list is empty, please add items:</p>
+
+        <ul type="circle">
+            <% list.items.forEach(listsItem => { %>
+              <a href="lists/<%= listsItem._id %>"><li> <%= listsItem.name %> </li> </a>  
+             <% }); %>   
+        </ul>
     
 </body>
+
+</div>
