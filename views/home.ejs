@@ -3,17 +3,18 @@
     <header>
         <h1> Welcome to Shoppy Cart</h1> 
     </header> <br />
-    
+
     <% if (typeof error !== 'undefined') { %>
         <span style="color: red; font-weight: bold;"><%= error %></span> 
       <% } %>
 
     <main>
+        <h2>Log In:</h2>
         <form action="/auth/login" method="POST">
 
         <div class="email">
-            <label for="em">Username:</label> <br />
-            <input type="email"  name="email">
+            <label for="em">Email:</label> <br />
+            <input type="email"  name="email" required>
         </div>
         
         <div class="password">
@@ -30,7 +31,7 @@
 </div> <br /> <hr>
 
        
-
+    <main>
         <form action="/auth/register" method="POST">
             <div class="container">
 

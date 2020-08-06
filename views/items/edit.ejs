@@ -11,11 +11,11 @@
     <img src=<%= "/img/" + storeID + ".png" %> />
 
     <form action="/items<%= index %>?_method=PUT" method="POST">
-        Item Name: <input type="text" name="item-name" value="<%= items.name %>" required /><br />
+        Item Name: <input type="text" name="name" value="<%= items.name %>" required /><br />
         Quantity: <input type="number" name="quantity" value="<%= items.quantity %>" /><br />
-        Unit of measure: <input type="" name="units" value="<%= items.units %>" /><br />
-        Additional Info: 
-        Date Needed By: 
+        Unit of measure: <input type="" name="unit" value="<%= items.unit %>" /><br />
+        Additional Info: <input type="" name="notes" value="<%= items.notes %>" /><br />
+        Date Needed By: <input type="" name="date" value="<%= items.date %>" /><br />
         <input type="submit" name="" value="Submit Changes" />
     </form>
 
