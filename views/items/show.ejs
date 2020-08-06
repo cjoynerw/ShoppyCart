@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Items Page</title>
+    <title>Your List</title>
 </head>
 <body>
-    <h1>Show Items Page</h1>
-    
+    <h1> Shoppy Cart </h1>
+        <main>
+            <h2>List of Items</h2>
+            <ul>
+                <% for(let i = 0; i < items.length; i++){ %>
+                    <li>
+                        <a href="/items/<%=items[i]._id%>"><%=items[i].name%></a>
+                    </li>
+                <% } %>
+            </ul>
+        </main>
 </body>
 </html>
