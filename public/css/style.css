@@ -11,7 +11,6 @@
   background-color: beige;
   /* The image used */
   background-image: url("../../img/shopping-cart-supermarket.png");
-  background-image: url("../../img/department-store.png");
   /* Set a specific height */
   height: 100%;
   /* Create the parallax scrolling effect */
@@ -78,6 +77,38 @@
       border-radius: 90px;
       background-color: white;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+
+.mako {
+  background-image: url("../../img/department-store.png");
+  /* Set a specific height */
+  min-height: 400px;
+  position: relative;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+  .mako .marketing {
+    display: flex;
+    flex-direction: row;
+    margin-left: 23%; }
+  .mako .shopping, .mako .memory, .mako .favStores {
+    width: 300px;
+    height: 350px;
+    border: solid 2px black;
+    border-radius: 25px;
+    background-color: #ebe8e8;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    margin: 80px 20px 20px 20px;
+    padding: 20px; }
+    .mako .shopping h2, .mako .memory h2, .mako .favStores h2 {
+      font-size: 30px;
+      text-decoration: underline;
+      padding-bottom: 20px;
+      font-weight: bold; }
+    .mako .shopping p, .mako .memory p, .mako .favStores p {
+      font-size: 20px; }
 
 .one {
   background-color: beige; }
