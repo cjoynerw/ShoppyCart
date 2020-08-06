@@ -13,7 +13,10 @@ require("dotenv").config()
 app.use(methodOverride('_method'))
 
 // MIDDLEWARE
-app.use(session({secret: "Hello James", resave: false, saveUninitialized: false}))
+app.use(session({
+    secret: process.env.SESSION_SECRET, 
+    resave: false, 
+    saveUninitialized: false}))
 app.set('view engine', 'ejs')
 app.use(ejsLayouts);
 app.use(express.static(__dirname + '/public/'))
