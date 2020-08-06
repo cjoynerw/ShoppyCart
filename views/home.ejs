@@ -1,40 +1,47 @@
 <div class="homepage">
-    
     <header>
-        <h1> Welcome to Shoppy Cart</h1> 
+        <ul>
+            <li>
+                <p>Welcome to Shoppy Cart!</p>
+            </li>
+            <li>
+                <p>Use Code: SHOPPYCARTRULEZ for 10% off your monthly subscription!</p>
+            </li>
+        </ul>
     </header> <br />
     
     <% if (typeof error !== 'undefined') { %>
         <span style="color: red; font-weight: bold;"><%= error %></span> 
       <% } %>
-
+      <div class="login">
+        <div class="returning">
     <main>
         <form action="/auth/login" method="POST">
 
         <div class="email">
             <label for="em">Username:</label> <br />
-            <input type="email"  name="email">
+            <input type="email" placeholder="Username" name="email">
         </div>
         
                  <div class="password">
 
             <label for="pass">Password:</label> <br />
 
-            <input type="password" name="password"
+            <input type="password" placeholder="Password" name="password"
                    minlength="4" required>
         </div> <br />
         <input type="submit" value="Start Shopping"> 
     </form>
-    </main>
+    
 
-</div> <br /> <hr>
+</div>
 
        
 
         <form action="/auth/register" method="POST">
             <div class="container">
 
-            <h1>Register Here:</h1> <br />
+            <h2>Register Here:</h2> <br />
             <p>Please fill in the details to start making your shopping list.</p> <br />
             <label for="email"><b>Enter Email:</b></label>
             <input type="text" placeholder="Enter Email" name="email"> <br />
@@ -42,10 +49,15 @@
             <input type="password" placeholder="Enter Password" name="pwd"> <br />
             <label for="confirm"><b>Confirm Password:</b></label>
             <input type="password" placeholder="Confirm Password" name="confirm"> <br />
-            <a href="/lists"> <button type="submit" class="registerbtn"><strong>Register</strong></button>
-            </div> <br />
-            <div class="container signin">
+            <a href="/lists"> <button type="submit" class="registerbtn"></a><strong>Register</strong></button>
             </div> 
+            
         </form>
     </main>
 
+    <div class="info">
+        <p>this is info</p>
+    </div>
+</div>
+
+</div>
