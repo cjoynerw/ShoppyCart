@@ -268,6 +268,7 @@
 // NEW ITEM PAGE -----------------------------------------------------------------
 
 .newitempage {
+
     .navbar {
         background-color: $primaryColor;
         display: flex;
@@ -305,7 +306,7 @@
             }
         }
 
-        .edititem {
+.edititem {
             background-image: url("../../img/shopping-cart-supermarket.png");
             height: 100vh;
             background-size: cover;
@@ -349,3 +350,4 @@
                     
                 }
             }
+        
