@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <header>
+       <h1> Items </h1>
+       <nav> 
+        <ul>
+            <li>
+                <a href="lists">Items Page</a>
+            </li>
+            <li>
+                <a href="/items">Create New Item</a>
+            </li>
+        </ul>
+       </nav>
+    </header>
+    <main>
+        <h2> List of Items</h2>
+        <ul>
+            <% for(let i = 0; i < items.length; i++) { %>
+                <li>
+                    <a href="/items/<%= items[i]._id %>"><%= items[i].name%></a>
+                </li>
+            <% } %>
+        </ul>
+        <ul>
+            <li>
+                <form action="/items/<%= i %>?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete" />
+                </form>
+                <!-- ADD A LINK TO THE EDIT FORM PAGE -->
+                <a href="/items/<%= i %>/edit">Edit</a>
+            </li>
+        </ul>
+        <nav>
+            <a href="/items/">Create a New Item</a>
+        </nav>
+    </main>     
+</body>
+</html>
