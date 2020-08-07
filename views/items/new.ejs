@@ -17,7 +17,6 @@
     <h2><%= storeID %> </h2>
     <img src=<%= "/img/" + storeID + ".png" %> />
     <form action="/items" method="POST">
-        <!-- use form inputs to represent the properties of a fruit -->
         <p>Item Name:</p> <input required type="text" name="name"/> <br />
         <p>Quantity:</p> <input required type="number" name="quantity"> <br />
          <p>Unit of Measure:
@@ -30,10 +29,9 @@
           <option value="gallon">gl</option>
           <option value="pint">pt</option>
         </select> <br/>
-        <p>Additional Info:</p> <textarea id="notes" name= "notes" rows="5" cols="17"> </textarea> <br />
-
-        <p>Date Needed By:</p> <input type="date" id="delivered" name="delivered">
-        <a href="lists"><input type="submit" value="Create Item" /> </a>
+        <p>Additional Info:</p> <textarea id="notes" name= "note" rows="5" cols="17"> </textarea> <br />
+        <p>Date Needed By:</p> <input type="date" id="delivered" name="date">
+      <!-- <a href="/"></a> ---> <input type="submit" value="Create Item" /> 
     </form>
     
 </body>

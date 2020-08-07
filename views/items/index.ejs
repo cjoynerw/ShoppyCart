@@ -11,10 +11,10 @@
        <nav> 
         <ul>
             <li>
-                <a href="lists">Items Page</a>
+                <a href="/lists">List Page</a>
             </li>
             <li>
-                <a href="/items">Create New Item</a>
+                <a href="/stores">Create New Item</a>
             </li>
         </ul>
        </nav>
@@ -28,17 +28,7 @@
                 </li>
             <% } %>
         </ul>
-        <ul>
-            <li>
-                <form action="/items/<%= i %>?_method=DELETE" method="POST">
-                    <input type="submit" value="Delete" />
-                </form>
-                <!-- ADD A LINK TO THE EDIT FORM PAGE -->
-                <a href="/items/<%= i %>/edit">Edit</a>
-            </li>
-        </ul>
         <nav>
-            <a href="/items/">Create a New Item</a>
         </nav>
     </main>     
 </body>

@@ -68,6 +68,7 @@ router.post('/login', async (req, res) => {
       });
     }
     const passwordsMatch = bcrypt.compareSync(req.body.password, user.password);
+    console.log("line 71", passwordsMatch)
     if (passwordsMatch === false) {
       return res.render('home', {
         title: 'Login',
@@ -77,7 +78,7 @@ router.post('/login', async (req, res) => {
 
     
     req.session.currentUser = user._id;
-    console.log("line 82", req.session);
+    console.log("line 82", req.session.currentUser);
     res.redirect('/lists');
   } catch (err) {
     res.send(err);
