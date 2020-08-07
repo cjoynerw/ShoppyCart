@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Item</title>
-</head>
+<div class="newitempage">
+
+    <nav class="navbar">
+        <a href="/lists">Home</a>
+        <ul>
+            <li>
+                <a href="/stores">Create New Item</a>
+            </li>
+            <li>
+                <a href="/">Logout</a>
+            </li>
+        </ul>
+    </nav>
+
 <body>
-    <h1>Add a New Item</h1>
+    <h1>Step 2: Add Item Information</h1>
     <h2><%= storeID %> </h2>
     <img src=<%= "/img/" + storeID + ".png" %> />
     <form action="/items" method="POST">
@@ -30,4 +37,5 @@
     </form>
     
 </body>
-</html>
+
+</div>
