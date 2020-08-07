@@ -93,15 +93,10 @@ router.put('/:id/', async (req, res) => {
   console.log("put router")
   try {
     const itemsToUpdate = await Item.findByIdAndUpdate(req.params.id, req.body, {new: false});
-    console.log("line 95", {itemsToUpdate})
-    // if (itemsToUpdate.lists.toString() === req.body.lists) {
-    //   return res.redirect("/lists");
-    // }
     const previousLists = await List.find();
     console.log("line", {previousLists})
-    await previousLists[0].items.push(itemsToUpdate);
+    //await previousLists[0].items.push(itemsToUpdate);
     await previousLists[0].save();
-    console.log("line 104", previousLists)
     return res.redirect("/lists");
   } catch (err) {
     res.send(err);
@@ -114,7 +109,7 @@ router.delete('/:id', async (req, res) => {
     const deletedItem = await Item.findByIdAndDelete(req.params.id);
     const foundList = await List.find();
     //console.log("found list", foundList)
-    foundList[0].item.remove({_id: req.params.id});
+    foundList[0].items.remove({_id: req.params.id});
     await foundList[0].save();
     res.redirect('/lists');
   } catch (err) {
