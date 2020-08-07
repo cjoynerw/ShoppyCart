@@ -114,7 +114,7 @@ router.delete('/:id', async (req, res) => {
     const deletedItem = await Item.findByIdAndDelete(req.params.id);
     const foundList = await List.find();
     //console.log("found list", foundList)
-    foundList[0].item.pull({_id: req.params.id});
+    foundList[0].item.remove({_id: req.params.id});
     await foundList[0].save();
     res.redirect('/lists');
   } catch (err) {
