@@ -7,14 +7,12 @@
 </head>
 <body>
     <h1> Shoppy Cart </h1>
-    <h2><%= storeID %> </h2>
-    <img src=<%= "/img/" + storeID + ".png" %> />
-    <form action="/items<%= items.id %>?_method=PUT" method="POST">
-        Item Name: <input type="text" name="name" value="<%= items.name %>" required /><br />
-        Quantity: <input type="number" name="quantity" value="<%= items.quantity %>" /><br />
-        Unit of measure: <input type="unit" name="unit" value="<%= items.unit %>" /><br />
-        Additional Info: <input type="notes" name="notes" value="<%= items.notes %>" /><br />
-        Date Needed By: <input type="date" name="date" value="<%= items.date %>" /><br />
+    <form action="/items/<%= item.id %>?_method=PUT" method="POST">
+        Item Name: <input type="text" name="name" value="<%= item.name %>" required /><br />
+        Quantity: <input type="number" name="quantity" value="<%= item.quantity %>" /><br />
+        Unit of measure: <input type="unit" name="unit" value="<%= item.unit %>" /><br />
+        Additional Info: <input type="notes" name="notes" value="<%= item.notes %>" /><br />
+        Date Needed By: <input type="date" name="date" value="<%= item.date %>" /><br />
         <input type="submit" value="Submit Changes" />
     </form>
 </body>

@@ -166,11 +166,15 @@
     border: solid 5px #009900;
     border-radius: 50px;
     padding: 40px;
-    background-color: lightgray; }
-
+    background-color: lightgray; 
     top: 0;
     width: 100vw;
     filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25)); }
+
+.wrapper {
+  margin-top: 100px;
+}
+
     .storepage .navbar ul {
       list-style: none;
       display: flex;

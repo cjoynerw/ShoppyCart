@@ -25,10 +25,8 @@ router.get('/', async (req, res) => {
 // GET Items New
 router.get('/new', async (req, res) => {
   try {
-   // const myList = await List.find();
     res.render('items/new.ejs', {
       title: 'New Item',
-    //  list: myList,
     });
   } catch (err) {
     res.send(err);
@@ -47,7 +45,7 @@ router.post('/', async (req, res) => {
     await foundList[0].save();
     console.log("line 51")
     console.log(foundList)
-    res.redirect("/items");
+    res.redirect("/lists");
   } catch (err) {
     res.send(err);
   }
@@ -69,38 +67,45 @@ router.get('/:id', async (req, res) => {
 // GET items Edit
 router.get('/:id/edit', async (req, res) => {
   try {
-    const foundItem = await Item.find()
+    const foundItem = await Item.findById(req.params.id)
+    console.log("line 85", foundItem)
     res.render('items/edit', {
-      title: 'Edit List',
-      item: foundItem,
+    title: 'Edit List',
+    item: foundItem,
     });
   } catch (err) {
     res.send(err);
   }
 });
 
-// router.get("/items/edit/:id", function(req, res) {
-//   Item.findById(req.params.id, function(err, items) {
-//     res.render("items", {
-//       items:items
-//     })
-//   })
+// router.get("/:id/edit", async (req, res) => {
+//   try {
+//     const items = await List.findById()
+//     console.log("line 85", items)
+//     res.render("items/edit", {itmes: items})
+//   } catch {
+//     res.redirect("/items")
+//   }
 // })
 
 // PUT Items Update
 router.put('/:id/', async (req, res) => {
+  console.log("put router")
   try {
     const itemsToUpdate = await Item.findByIdAndUpdate(req.params.id, req.body, {new: false});
+    console.log("line 95", {itemsToUpdate})
     if (itemsToUpdate.lists.toString() === req.body.lists) {
       return res.redirect("/items/");
     }
-    const previousLists = await List.findById(itemsToUpdate.lists);
-    await previousLists.items.remove(req.params.id);
+    const previousLists = await List.find();
+    console.log("line", {previousLists})
+    await previousLists[0].items.pull(req.params.id);
     await previousLists.save();
     const newLists = await List.findById(req.body.lists);
+    console.log("line 104", {newLists})
     newLists[0].items.push(itemsToUpdate);
     await newLists[0].save();
-    res.redirect("lists");
+    res.redirect("/lists");
   } catch (err) {
     res.send(err);
   }
