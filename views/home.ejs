@@ -9,18 +9,19 @@
             </li>
         </ul>
     </header> <br />
-    
+
     <% if (typeof error !== 'undefined') { %>
         <span style="color: red; font-weight: bold;"><%= error %></span> 
       <% } %>
       <div class="login">
         <div class="returning">
     <main>
+        <h2>Log In:</h2>
         <form action="/auth/login" method="POST">
 
         <div class="email">
-            <label for="em">Username:</label> <br />
-            <input type="email" placeholder="Username" name="email">
+            <label for="em">Email:</label> <br />
+            <input type="email"  name="email" required>
         </div>
         
                  <div class="password">

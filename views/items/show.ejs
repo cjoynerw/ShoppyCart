@@ -6,16 +6,20 @@
     <title>Your List</title>
 </head>
 <body>
-    <h1> Shoppy Cart </h1>
-        <main>
-            <h2>List of Items</h2>
-            <ul>
-                <% for(let i = 0; i < items.length; i++){ %>
-                    <li>
-                        <a href="/items/<%=items[i]._id%>"><%=items[i].name%></a>
-                    </li>
-                <% } %>
-            </ul>
-        </main>
+    <h1>Show Items Page</h1>
+
+       <p>Item Name: <%= items.name %></p> 
+       <p>Quantity: <%= items.quantity %></p>
+        <p>Unit of measure: <%= items.unit %></p>
+        <p>Additional Info: <%= items.notes %></p>
+        <p>Date Needed By: <%= items.date %></p>
+    <ul>
+        <li>
+            <form action="/items/<%= items._id %>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete" />
+            </form>
+            <a href="/items/<%= items._id %>/edit"> <button>Edit</button></a>
+        </li>
+    </ul>
 </body>
 </html>
