@@ -160,8 +160,10 @@
 
 //  LISTS PAGE -----------------------------------------------------------------------------
 
-.one {
-    background-color: beige;
+.listpage {
+    background-image: url("../../img/shopping-cart-supermarket.png");
+    height: 100vh;
+    background-size: cover;
     .navbar {
         background-color: $primaryColor;
         display: flex;
@@ -188,15 +190,18 @@
                 }
         }
         .list {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            margin-top: -50px;
-            margin-left: -100px;
-            border: solid 5px $primaryColor;
-            border-radius: 50px;
-            padding: 40px;
-            background-color: lightgray;
+            height: 75vh;
+            padding: 200px;
+            margin: 0 300px 0 300px;
+            background-color: $panelColor;
+            border-radius: 20px;
+            p {
+                font-size: 50px;
+            }
+            a {
+                font-size: 20px;
+            }
+            
         }
     }
 
@@ -206,12 +211,6 @@
 .storepage {
     background-image: url("../../img/shopping-cart-supermarket.png");
     height: 100vh;
-    // height: 100%;
-
-    /* Create the parallax scrolling effect */
-    // background-attachment: fixed;
-    // background-position: center;
-    // background-repeat: no-repeat;
     background-size: cover;
     .navbar {
         background-color: $primaryColor;

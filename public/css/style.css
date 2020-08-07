@@ -112,9 +112,11 @@
     .mako .shopping p, .mako .memory p, .mako .favStores p {
       font-size: 20px; }
 
-.one {
-  background-color: beige; }
-  .one .navbar {
+.listpage {
+  background-image: url("../../img/shopping-cart-supermarket.png");
+  height: 100vh;
+  background-size: cover; }
+  .listpage .navbar {
     background-color: #009900;
     display: flex;
     justify-content: space-between;
@@ -123,33 +125,32 @@
     top: 0;
     width: 100vw;
     filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25)); }
-    .one .navbar ul {
+    .listpage .navbar ul {
       list-style: none;
       display: flex;
       flex-direction: row; }
-    .one .navbar a {
+    .listpage .navbar a {
       color: #ffffff;
       text-decoration: none;
       font-size: 1.5rem;
       padding: 1.5rem; }
-      .one .navbar a:hover {
+      .listpage .navbar a:hover {
         color: #000000;
         transition: all 0.5s ease-in-out; }
-  .one .list {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -50px;
-    margin-left: -100px;
-    border: solid 5px #009900;
-    border-radius: 50px;
-    padding: 40px;
-    background-color: lightgray; }
+  .listpage .list {
+    height: 75vh;
+    padding: 200px;
+    margin: 0 300px 0 300px;
+    background-color: #ebe8e8;
+    border-radius: 20px; }
+    .listpage .list p {
+      font-size: 50px; }
+    .listpage .list a {
+      font-size: 20px; }
 
 .storepage {
   background-image: url("../../img/shopping-cart-supermarket.png");
   height: 100vh;
-  /* Create the parallax scrolling effect */
   background-size: cover; }
   .storepage .navbar {
     background-color: #009900;
