@@ -9,7 +9,6 @@
     <h1> Shoppy Cart </h1>
     <h2><%= storeID %> </h2>
     <img src=<%= "/img/" + storeID + ".png" %> />
-
     <form action="/items<%= index %>?_method=PUT" method="POST">
         Item Name: <input type="text" name="name" value="<%= items.name %>" required /><br />
         Quantity: <input type="number" name="quantity" value="<%= items.quantity %>" /><br />
@@ -18,6 +17,5 @@
         Date Needed By: <input type="" name="date" value="<%= items.date %>" /><br />
         <input type="submit" name="" value="Submit Changes" />
     </form>
-
 </body>
 </html>
