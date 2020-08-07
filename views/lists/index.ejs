@@ -1,29 +1,29 @@
 <div class="listpage">
 
-    <nav class="navbar">
-        <a href="/lists">Home</a>
-        <ul>
-            <li>
-                <a href="/stores">Create New Item</a>
-            </li>
-            <li>
-                <a href="/">Logout</a>
-            </li>
-        </ul>
-    </nav>
+    <body>
+        <nav class="navbar">
+            <a href="/lists">Home</a>
+            <ul>
+                <li>
+                    <a href="/stores">Create New Item</a>
+                </li>
+                <li>
+                    <a href="/">Logout</a>
+                </li>
+            </ul>
+        </nav>
 
-<body>
-        <div class="list"
-        
+        <% if (list.items === 0) { %>
         <p> Your current list is empty, please add items:</p>
+        <%}%> 
         
-        <ul type="circle"> 
-            <li></li>
+
+        <ul type="circle">
+            <% list.items.forEach(listsItem => { %>
+              <a href="/items/<%= listsItem._id %>"><li> <%= listsItem.name %> </li> </a>  
+             <% }); %>   
         </ul>
-
-        <h1> <a href="/stores">Click Here to Create a New Item</a></h1>
-    </div>
-
+    
 </body>
 
 
