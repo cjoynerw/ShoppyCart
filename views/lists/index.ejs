@@ -13,14 +13,19 @@
             </ul>
         </nav>
 
+        <% if (list.items === 0) { %>
         <p> Your current list is empty, please add items:</p>
+        <%}%> 
+        
 
         <ul type="circle">
             <% list.items.forEach(listsItem => { %>
-              <a href="lists/<%= listsItem._id %>"><li> <%= listsItem.name %> </li> </a>  
+              <a href="/items/<%= listsItem._id %>"><li> <%= listsItem.name %> </li> </a>  
              <% }); %>   
         </ul>
     
 </body>
+
+
 
 </div>

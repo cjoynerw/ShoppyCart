@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
   // Get All Lists from DB
   try {
     const myList = await List.find().populate("items")
-    console.log(myList)
+    console.log("line 15", myList)
     res.render('lists/index', {
       list: myList[0],
       title: 'Your Lists'

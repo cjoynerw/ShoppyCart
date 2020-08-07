@@ -9,13 +9,13 @@
     <h1> Shoppy Cart </h1>
     <h2><%= storeID %> </h2>
     <img src=<%= "/img/" + storeID + ".png" %> />
-    <form action="/items<%= index %>?_method=PUT" method="POST">
+    <form action="/items<%= items.id %>?_method=PUT" method="POST">
         Item Name: <input type="text" name="name" value="<%= items.name %>" required /><br />
         Quantity: <input type="number" name="quantity" value="<%= items.quantity %>" /><br />
-        Unit of measure: <input type="" name="unit" value="<%= items.unit %>" /><br />
-        Additional Info: <input type="" name="notes" value="<%= items.notes %>" /><br />
-        Date Needed By: <input type="" name="date" value="<%= items.date %>" /><br />
-        <input type="submit" name="" value="Submit Changes" />
+        Unit of measure: <input type="unit" name="unit" value="<%= items.unit %>" /><br />
+        Additional Info: <input type="notes" name="notes" value="<%= items.notes %>" /><br />
+        Date Needed By: <input type="date" name="date" value="<%= items.date %>" /><br />
+        <input type="submit" value="Submit Changes" />
     </form>
 </body>
 </html>

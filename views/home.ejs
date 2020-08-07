@@ -1,13 +1,20 @@
 <div class="homepage">
-    
     <header>
-        <h1> Welcome to Shoppy Cart</h1> 
+        <ul>
+            <li>
+                <p>Welcome to Shoppy Cart!</p>
+            </li>
+            <li>
+                <p>Use Code: SHOPPYCARTRULEZ for 10% off your monthly subscription!</p>
+            </li>
+        </ul>
     </header> <br />
 
     <% if (typeof error !== 'undefined') { %>
         <span style="color: red; font-weight: bold;"><%= error %></span> 
       <% } %>
-
+      <div class="login">
+        <div class="returning">
     <main>
         <h2>Log In:</h2>
         <form action="/auth/login" method="POST">
@@ -17,25 +24,25 @@
             <input type="email"  name="email" required>
         </div>
         
-        <div class="password">
+                 <div class="password">
 
             <label for="pass">Password:</label> <br />
 
-            <input type="password" name="password"
+            <input type="password" placeholder="Password" name="password"
                    minlength="4" required>
         </div> <br />
         <input type="submit" value="Start Shopping"> 
     </form>
-    </main>
+    
 
-</div> <br /> <hr>
+</div>
 
        
     <main>
         <form action="/auth/register" method="POST">
             <div class="container">
 
-            <h1>Register Here:</h1> <br />
+            <h2>Register Here:</h2> <br />
             <p>Please fill in the details to start making your shopping list.</p> <br />
             <label for="email"><b>Enter Email:</b></label>
             <input type="text" placeholder="Enter Email" name="email"> <br />
@@ -43,10 +50,53 @@
             <input type="password" placeholder="Enter Password" name="pwd"> <br />
             <label for="confirm"><b>Confirm Password:</b></label>
             <input type="password" placeholder="Confirm Password" name="confirm"> <br />
-            <a href="/lists"> <button type="submit" class="registerbtn"><strong>Register</strong></button>
-            </div> <br />
-            <div class="container signin">
+            <a href="/lists"> <button type="submit" class="registerbtn"></a><strong>Register</strong></button>
             </div> 
+            
         </form>
     </main>
 
+    
+    </div>
+        <div class="parollax1">
+
+    <h1>Create shopping lists for stores we know you love</h1><br />
+        <div class="stores">
+    
+            <img src="../../img/bestbuy.png" alt="bestbuy">
+            <img src="../../img/ralphs.png" alt="ralphs">
+            <img src="../../img/target.png" alt="target">
+            <img src="../../img/traderjoes.png" alt="traderjoes">
+            <img src="../../img/walmart.png" alt="walmart">
+            <img src="../../img/wholefoods.png" alt="wholefoods">
+            <img src="../../img/costco.png" alt="costco">
+            <img src="../../img/petco.png" alt="petco">
+            <img src="../../img/staples.png" alt="staples">
+            <img src="../../img/cvs.png" alt="cvs">
+            <img src="../../img/gamestop.png" alt="gamestop">
+            <img src="../../img/homedepot.png" alt="homedepot">
+
+         </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="mako">
+    <div class="marketing">
+
+    <div class="shopping">
+        <h2>Shopping made easy</h2>
+        <p>All you have to do is add your items based on what store you're going to. Yes. It's that simple.</p>
+    </div>
+    <div class="memory">
+        <h2>Dont leave it to memory</h2>
+        <p>Research shows that within one hour, people will have forgotten an average of 50 percent of the new information stored in their brain.</p>
+    </div>
+    <div class="favStores">
+        <h2>Not your regular shopping list</h2>
+        <p>No more "Milk, Eggs, Bread" lists on your fridge. This is how real shopping lists are made. I mean seriously, who uses notepads anymore?</p>
+    </div>
+</div>
+</div>
