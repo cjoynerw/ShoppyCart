@@ -42,6 +42,8 @@
     margin-top: 200px;
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+    .homepage .login button {
+      background-color: red; }
   .homepage .returning {
     align-items: center;
     text-align: center;
@@ -110,9 +112,11 @@
     .mako .shopping p, .mako .memory p, .mako .favStores p {
       font-size: 20px; }
 
-.one {
-  background-color: beige; }
-  .one .navbar {
+.listpage {
+  background-image: url("../../img/shopping-cart-supermarket.png");
+  height: 100vh;
+  background-size: cover; }
+  .listpage .navbar {
     background-color: #009900;
     display: flex;
     justify-content: space-between;
@@ -121,20 +125,40 @@
     top: 0;
     width: 100vw;
     filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25)); }
-    .one .navbar ul {
+    .listpage .navbar ul {
       list-style: none;
       display: flex;
       flex-direction: row; }
-    .one .navbar a {
+    .listpage .navbar a {
       color: #ffffff;
       text-decoration: none;
       font-size: 1.5rem;
       padding: 1.5rem; }
-      .one .navbar a:hover {
+      .listpage .navbar a:hover {
         color: #000000;
         transition: all 0.5s ease-in-out; }
-  .one .list {
+  .listpage .list {
+    height: 75vh;
+    padding: 200px;
+    margin: 0 300px 0 300px;
+    background-color: #ebe8e8;
+    border-radius: 20px; }
+    .listpage .list p {
+      font-size: 50px; }
+    .listpage .list a {
+      font-size: 20px; }
+
+.storepage {
+  background-image: url("../../img/shopping-cart-supermarket.png");
+  height: 100vh;
+  background-size: cover; }
+  .storepage .navbar {
+    background-color: #009900;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
+
     top: 50%;
     left: 50%;
     margin-top: -50px;
@@ -144,6 +168,70 @@
     padding: 40px;
     background-color: lightgray; }
 
-  .wrapper {
-    margin-top: 100px;
-  }
+    top: 0;
+    width: 100vw;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25)); }
+    .storepage .navbar ul {
+      list-style: none;
+      display: flex;
+      flex-direction: row; }
+    .storepage .navbar a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.5rem;
+      padding: 1.5rem; }
+      .storepage .navbar a:hover {
+        color: #000000;
+        transition: all 0.5s ease-in-out; }
+  .storepage h1 {
+    padding: 300px 0 0 100px;
+    font-size: 50px; }
+  .storepage .stores {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 50px 100px 0 100px;
+    background-color: #ebe8e8;
+    padding: 20px;
+    border-radius: 20px; }
+    .storepage .stores img {
+      width: 100px;
+      height: 100px;
+      border: solid 2px black;
+      border-radius: 90px;
+      background-color: white;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+
+.newitempage .navbar {
+  background-color: #009900;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25)); }
+  .newitempage .navbar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row; }
+  .newitempage .navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 1.5rem; }
+    .newitempage .navbar a:hover {
+      color: #000000;
+      transition: all 0.5s ease-in-out; }
+
+.newitempage body img {
+  width: 100px;
+  height: 100px;
+  border: solid 2px black;
+  border-radius: 90px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+
