@@ -19,12 +19,11 @@ router.get('/', (req, res) => {
     res.render('home')
 })
 
-// Grocery Stores Route
+// Grocery Stores Routes
 router.get('/stores', (req, res) => {
     res.render('stores/show.ejs')
 })
 
-//
 router.get("/stores/:id", (req, res) => {
     res.render("items/new.ejs", {storeID: req.params.id})
 })
@@ -32,12 +31,5 @@ router.get("/stores/:id", (req, res) => {
 router.get("/stores/:id/edit", (req, res) => {
     res.render("items/edit.ejs", {storeID: req.params.id})
 })
-
-// Edit Route
-router.get('/items', itemsController);
-
-// Delete Route
-router.get('/items', itemsController);
-
 
 module.exports = router

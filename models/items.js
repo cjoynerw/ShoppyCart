@@ -11,17 +11,6 @@ const itemSchema = new mongoose.Schema({
     store: String,
 })
 
-// CREATE MODEL
-
-// Update Items
-// const updateItemsSchema = new mongoose.Schema({
-//     name: String, 
-//     quantity: Number,
-//     unit: String,
-//     notes: String,
-//     date: String,
-//     store: String,
-// })
 const Item = mongoose.model("Item", itemSchema)
 
 // EXPORT
