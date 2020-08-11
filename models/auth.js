@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const UserSchema = new mongoose.Schema({
   userlist: {type: mongoose.Schema.Types.ObjectId, ref: 'List'},
   email: {

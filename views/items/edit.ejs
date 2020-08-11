@@ -1,4 +1,5 @@
 <div class="edititem">
+
     <nav class="navbar">
         <a href="/lists">Home</a>
         <ul>
@@ -10,11 +11,21 @@
             </li>
         </ul>
     </nav>
+
     <h1> Shoppy Cart </h1>
     <form action="/items/<%= item._id %>?_method=PUT" method="POST">
         Item Name: <input type="text" name="name" value="<%= item.name %>" required /><br />
         Quantity: <input type="number" name="quantity" value="<%= item.quantity %>" /><br />
-        Unit of measure: <input type="unit" name="unit" value="<%= item.unit %>" /><br />
+        <p>Unit of Measure: 
+        <select name="unit" id="unitsofmeasure">
+          <option value=""></option>
+          <option value="pound">lbs</option>
+          <option value="kilogram">kg</option>
+          <option value="ounce">oz</option>
+          <option value="quart">qt</option>
+          <option value="gallon">gl</option>
+          <option value="pint">pt</option>
+        </select> <br/>
         Additional Info: <input type="notes" name="notes" value="<%= item.notes %>" /><br />
         Date Needed By: <input type="date" name="date" value="<%= item.date %>" /><br />
       <input type="submit" value="Submit Changes" />

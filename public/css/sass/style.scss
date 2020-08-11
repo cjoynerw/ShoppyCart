@@ -268,6 +268,9 @@
 // NEW ITEM PAGE -----------------------------------------------------------------
 
 .newitempage {
+    background-image: url("../../img/shopping-cart-supermarket.png");
+    height: 100vh;
+    background-size: cover;
     .navbar {
         background-color: $primaryColor;
         display: flex;
@@ -293,19 +296,30 @@
                     }
                 }
             }
-            body {
-                img {
-                    width: 100px;
-                height: 100px;
-                border: solid 2px black;
-                border-radius: 90px;
-                background-color: white;
-                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            img {
+                width: 100px;
+            height: 100px;
+            border: solid 2px black;
+            border-radius: 90px;
+            background-color: white;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            .panel {
+                margin: 50px 100px 0 100px;
+                background-color: $panelColor;
+                padding: 60px;
+                border-radius: 20px;
+                h1 {
+                    font-size: 30px;
+                }
+                h2 {
+                    font-size: 25px;
+                    padding-bottom: 30px;
                 }
             }
         }
 
-        .edititem {
+.edititem {
             background-image: url("../../img/shopping-cart-supermarket.png");
             height: 100vh;
             background-size: cover;
@@ -349,3 +363,4 @@
                     
                 }
             }
+        
