@@ -2,11 +2,12 @@
 
 <u><h2>User Story</h2><u/><br>
 As a User, I would like to plan my shopping for the week and have it organized by store. If for whatever reason I cannot do my shopping, I would like to send my list to a friend or family member. <br>
+  
+  Our app on HEROKU - https://shoppycart1.herokuapp.com/
+  
   <h3>Users should be able to:</h3><br>
   
-  
-Our app on HEROKU - https://shoppycart1.herokuapp.com/
-  
+   
   <ul>
     <li>User1 can make weekly shopping list</li>
     <li>User1 can notify relatives when they need shopping done.</li>
