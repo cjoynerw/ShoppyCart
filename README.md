@@ -2,8 +2,12 @@
 
 <u><h2>User Story</h2><u/><br>
 As a User, I would like to plan my shopping for the week and have it organized by store. If for whatever reason I cannot do my shopping, I would like to send my list to a friend or family member. <br>
+  
+  Our app on HEROKU - https://shoppycart1.herokuapp.com/
+  
   <h3>Users should be able to:</h3><br>
   
+   
   <ul>
     <li>User1 can make weekly shopping list</li>
     <li>User1 can notify relatives when they need shopping done.</li>
@@ -13,6 +17,8 @@ As a User, I would like to plan my shopping for the week and have it organized b
     <li>List can be sent to User 2 when ready to be bought</li>
     <li>User1 can make lists from different sores</li>
   </ul><br>
+  
+  
   
 <h2>ERD</h2>
 <img width="1025" alt="4" src="https://user-images.githubusercontent.com/66435399/89079975-48782f80-d34d-11ea-86f5-bdac543e0e6b.png">
@@ -33,3 +39,5 @@ As a User, I would like to plan my shopping for the week and have it organized b
 <img width="1024" alt="6" src="https://user-images.githubusercontent.com/66435399/89062512-36d26000-d32c-11ea-8379-86dca38bb1f1.png">
 <h3>Item Information/Edit/Delete</h3>
 <img width="1024" alt="7" src="https://user-images.githubusercontent.com/66435399/89062516-38038d00-d32c-11ea-8f1f-d441f3dd4733.png">
+
+
