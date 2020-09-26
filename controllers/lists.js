@@ -16,4 +16,16 @@ router.get('/', async (req, res) => {
   }
 });
 
+// POST Lists Create
+router.post('/', async (req, res) => {
+  try {
+  const newList = await List.create(req.body);
+    await List.create(req.body.id);
+    res.redirect('/lists') ;
+  } catch (err) {
+    res.send(err);
+  }
+});
+
+
 module.exports = router;
